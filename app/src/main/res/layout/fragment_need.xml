@@ -1,0 +1,32 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.smile.microcampus.Fragments.LearningFragment">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        <include layout="@layout/banner"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <org.smile.microcampus.Utils.MyGridView
+                android:id="@+id/gridview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:horizontalSpacing="0dp"
+                android:listSelector="@null"
+                android:numColumns="3"
+                android:scrollbars="none"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="0dp" />
+        </ScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>
