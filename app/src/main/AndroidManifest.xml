@@ -48,6 +48,7 @@
             android:name="cn.sharesdk.tencent.qq.ResultReceiver"
             android:launchMode="singleTask"
             android:noHistory="true" >
+
             <!--
             如果集成QQ分享，或者使用QQ客户端来进行QQ空间的分享，须要在此处添加一个对ACTION_VIEW
             事件的过滤器，其中的scheme是“tencent”前缀再开发者应用的加上appId。如果此过滤器不设置，
@@ -55,7 +56,9 @@
             -->
             <intent-filter android:priority="1000" >
                 <data android:scheme="tencent222222" />
+
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
@@ -63,6 +66,10 @@
         <activity
             android:name=".Activitys.AuthPage"
             android:label="@string/title_activity_auth_page" >
+        </activity>
+        <activity
+            android:name=".Activitys.PersanalPage"
+            android:label="@string/title_activity_persanal_page" >
         </activity>
     </application>
 

@@ -171,24 +171,20 @@ public class AuthPage extends AppCompatActivity implements View.OnClickListener,
     }
 
     public void qqLogin(){
-        /*if (qq.isValid ()) {
-            qq.removeAccount(); //移除授权
-        }*/
         qq.SSOSetting(false);  //设置false表示使用SSO授权方式
         qq.setPlatformActionListener(this);
         qq.authorize();
     }
     private void authorize(Platform plat) {
-        //判断指定平台是否已经完成授权
+        /*//判断指定平台是否已经完成授权
         if(plat.isAuthValid()) {
             String userId = plat.getDb().getUserId();
             if (userId != null) {
             }
-        }
+        }*/
         plat.SSOSetting(false); // true不使用SSO授权，false使用SSO授权
         plat.setPlatformActionListener(this);
         plat.authorize();
-        //plat.showUser(null); //获取用户资料
     }
 }
 

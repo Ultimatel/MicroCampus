@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.mob.tools.utils.UIHandler;
 
 import org.smile.microcampus.Activitys.AuthPage;
+import org.smile.microcampus.Activitys.PersanalPage;
 import org.smile.microcampus.R;
 import org.smile.microcampus.Utils.CircleImageView;
 import org.smile.microcampus.Utils.NormalLoadPictrue;
@@ -66,9 +67,8 @@ public class MeFragment extends Fragment implements View.OnClickListener{
         if(qq.isAuthValid()) {
             String userId = qq.getDb().getUserId();
             if (userId != null) {
-                userName.setText(qq.getDb().get("nickname"));
-                new NormalLoadPictrue().getPicture(qq.getDb().get("icon"), userImage);
-                //userImage.setImageURI(Uri.parse(qq.getDb().get("icon")));
+                userName.setText(qq.getDb().getUserName());
+                new NormalLoadPictrue().getPicture(qq.getDb().getUserIcon(), userImage);
             }else{
                 userName.setText("立即登陆");
             }
@@ -81,8 +81,18 @@ public class MeFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.login:
-                Intent intent = new Intent(getActivity(), AuthPage.class);
-                startActivity(intent);
+                if(qq.isAuthValid()) {
+                    String userId = qq.getDb().getUserId();
+                    if (userId != null) {
+                        Intent intent = new Intent(getActivity(),PersanalPage.class);
+                        startActivity(intent);
+                    }
+                } else{
+                    Intent intent = new Intent(getActivity(), AuthPage.class);
+                    startActivity(intent);
+                }
+
+
                 break;
             default:
                 break;

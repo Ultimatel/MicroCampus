@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fragmentManager = getSupportFragmentManager();
         initView();
         isFromlogin =  getIntent().getBooleanExtra("isFromlogin", false);
-        if(isFromlogin){
+        if(isFromlogin){   //从登陆界面返回的话
             resetLayoutButton();
             setLayoutButton(5);
             setTabSelection(5);
