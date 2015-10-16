@@ -71,6 +71,26 @@
             android:name=".Activitys.PersanalPage"
             android:label="@string/title_activity_persanal_page" >
         </activity>
+        <activity
+            android:name=".Activitys.SearchActivity"
+            android:label="@string/title_activity_search" >
+        </activity>
+        <activity
+            android:name=".Activitys.SupermarketActivity"
+            android:label="@string/title_activity_supermarket" >
+        </activity>
+        <activity
+            android:name=".Activitys.PackageBusActivity"
+            android:label="@string/title_activity_package_bus" >
+        </activity>
+        <activity
+            android:name=".Activitys.AccommodationActivity"
+            android:label="@string/title_activity_accommodation" >
+        </activity>
+        <activity
+            android:name=".Activitys.TravelActivity"
+            android:label="@string/title_activity_travel" >
+        </activity>
     </application>
 
 </manifest>

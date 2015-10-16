@@ -6,4 +6,9 @@
     <string name="title_activity_auth_page">AuthPage</string>
     <string name="not_yet_authorized">尚未授权</string>
     <string name="title_activity_persanal_page">PersanalPage</string>
+    <string name="title_activity_search">search</string>
+    <string name="title_activity_supermarket">SupermarketActivity</string>
+    <string name="title_activity_package_bus">PackageBusActivity</string>
+    <string name="title_activity_accommodation">AccommodationActivity</string>
+    <string name="title_activity_travel">TravelActivity</string>
 </resources>
