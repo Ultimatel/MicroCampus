@@ -8,5 +8,9 @@
     <color name ="blue">#3366CC</color><!--棕色 -->
     <color name ="orange">#FF9900</color><!--棕色 -->
     <color name="line">#F5F5F5</color>
+<<<<<<< HEAD
     <color name="green">#2ef5b8</color>
+=======
+    <color name="red">#ff0000</color><!--红色 -->
+>>>>>>> 51d66cde2d2bb764f97705fbe8149564cb80fd16
 </resources>

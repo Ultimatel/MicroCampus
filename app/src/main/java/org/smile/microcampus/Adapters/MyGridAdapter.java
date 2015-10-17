@@ -18,10 +18,10 @@ public class MyGridAdapter extends BaseAdapter {
 
 	private Context mContext;
 
-	public String[] img_text = { "拍拍", "住宿", "旅游", "包车", "电影", "外卖",
-			"聚会", "校联", "服务", };
-	public int[] imgs = { R.drawable.app_transfer, R.drawable.app_fund,R.drawable.app_plane,
-			R.drawable.app_creditcard, R.drawable.app_movie, R.drawable.app_game,
+	public String[] img_text = { "超市", "包车", "住宿", "旅游", "校联", "拍拍",
+			"聚会", "电影", "服务", };
+	public int[] imgs = { R.drawable.app_transfer, R.drawable.app_fund,R.drawable.app_creditcard,
+			R.drawable.app_plane, R.drawable.app_movie, R.drawable.app_game,
 			R.drawable.app_facepay, R.drawable.app_close,R.drawable.app_phonecharge  };
 
 	public MyGridAdapter(Context mContext) {

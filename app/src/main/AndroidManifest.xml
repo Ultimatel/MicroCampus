@@ -48,6 +48,7 @@
             android:name="cn.sharesdk.tencent.qq.ResultReceiver"
             android:launchMode="singleTask"
             android:noHistory="true" >
+
             <!--
             如果集成QQ分享，或者使用QQ客户端来进行QQ空间的分享，须要在此处添加一个对ACTION_VIEW
             事件的过滤器，其中的scheme是“tencent”前缀再开发者应用的加上appId。如果此过滤器不设置，
@@ -55,7 +56,9 @@
             -->
             <intent-filter android:priority="1000" >
                 <data android:scheme="tencent222222" />
+
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
@@ -65,6 +68,7 @@
             android:label="@string/title_activity_auth_page" >
         </activity>
         <activity
+<<<<<<< HEAD
             android:name=".Activitys.NewsActivity"
             android:theme="@style/Theme.AppCompat.Light"
             android:parentActivityName=".Activitys.MainActivity"
@@ -81,6 +85,30 @@
             android:label="兼职"
             android:theme="@style/AppThemePartTime"
             android:parentActivityName=".Activitys.MainActivity">
+=======
+            android:name=".Activitys.PersanalPage"
+            android:label="@string/title_activity_persanal_page" >
+        </activity>
+        <activity
+            android:name=".Activitys.SearchActivity"
+            android:label="@string/title_activity_search" >
+        </activity>
+        <activity
+            android:name=".Activitys.SupermarketActivity"
+            android:label="@string/title_activity_supermarket" >
+        </activity>
+        <activity
+            android:name=".Activitys.PackageBusActivity"
+            android:label="@string/title_activity_package_bus" >
+        </activity>
+        <activity
+            android:name=".Activitys.AccommodationActivity"
+            android:label="@string/title_activity_accommodation" >
+        </activity>
+        <activity
+            android:name=".Activitys.TravelActivity"
+            android:label="@string/title_activity_travel" >
+>>>>>>> 51d66cde2d2bb764f97705fbe8149564cb80fd16
         </activity>
     </application>
 
