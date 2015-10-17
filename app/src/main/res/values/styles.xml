@@ -8,11 +8,11 @@
         <item name="colorControlNormal">@color/white</item>  <!--ActionBar控件颜色-->
     </style>
 
-<<<<<<< HEAD
+
     <style name="dot_style">
         <item name="android:layout_width">5dip</item>
         <item name="android:layout_height">5dip</item>
-        <item name="android:background">@drawable/dot_normal</item>
+        
         <item name="android:layout_marginLeft">1.5dip</item>
         <item name="android:layout_marginRight">1.5dip</item>
     </style>
@@ -22,6 +22,5 @@
         <item name="android:textColorPrimary">@color/white</item> <!--ActionBar上的标题与更多菜单中的文字颜色-->
         <item name="colorControlNormal">@color/white</item>  <!--ActionBar控件颜色-->
     </style>
-=======
->>>>>>> 51d66cde2d2bb764f97705fbe8149564cb80fd16
+
 </resources>

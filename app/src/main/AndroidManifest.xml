@@ -68,7 +68,7 @@
             android:label="@string/title_activity_auth_page" >
         </activity>
         <activity
-<<<<<<< HEAD
+
             android:name=".Activitys.NewsActivity"
             android:theme="@style/Theme.AppCompat.Light"
             android:parentActivityName=".Activitys.MainActivity"
@@ -84,10 +84,8 @@
         <activity android:name=".Activitys.PartTime_Detail"
             android:label="兼职"
             android:theme="@style/AppThemePartTime"
-            android:parentActivityName=".Activitys.MainActivity">
-=======
-            android:name=".Activitys.PersanalPage"
-            android:label="@string/title_activity_persanal_page" >
+            android:parentActivityName=".Activitys.MainActivity"
+            >
         </activity>
         <activity
             android:name=".Activitys.SearchActivity"
@@ -105,10 +103,11 @@
             android:name=".Activitys.AccommodationActivity"
             android:label="@string/title_activity_accommodation" >
         </activity>
+        <activity android:name=".Activitys.PersanalPage"
+        android:label="@string/title_activity_persanal_page" ></activity>
         <activity
             android:name=".Activitys.TravelActivity"
             android:label="@string/title_activity_travel" >
->>>>>>> 51d66cde2d2bb764f97705fbe8149564cb80fd16
         </activity>
     </application>
 
