@@ -1,0 +1,104 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="org.smile.universityguide.Fragments.LearningFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/layout_a1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="0.25"
+
+            >
+            <ImageView
+                android:id="@+id/iv_1"
+                android:layout_width="33dp"
+                android:layout_height="38dp"
+
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/app_facepay"/>
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:text="校内外活动"
+
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/orange"
+
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layout_a2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="0.30"
+            >
+            <ImageView
+                android:id="@+id/iv_2"
+                android:layout_width="33dp"
+                android:layout_height="38dp"
+
+
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/app_fund"/>
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:text="兼职"
+                android:layout_gravity="center_horizontal"
+                android:gravity="left"
+                android:textColor="@color/light_gray"
+
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layout_a3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="0.20"
+            >
+            <ImageView
+                android:id="@+id/iv_3"
+                android:layout_width="33dp"
+                android:layout_height="38dp"
+
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/app_game"/>
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:text="志愿者信息"
+                android:textColor="@color/light_gray"
+                android:layout_gravity="center_horizontal"
+
+                android:paddingLeft="5dp"
+
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/actvity_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_weight="1"
+        android:layout_marginTop="8dp">
+
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

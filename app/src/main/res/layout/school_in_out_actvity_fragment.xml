@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/school_ll">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/school_image"
+            android:layout_width="45dp"
+            android:layout_height="53dp"
+            android:src="@drawable/app_movie"
+            />
+
+<TextView
+    android:id="@+id/school_tv1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_toRightOf="@+id/school_image"
+    android:paddingLeft="15dp"
+    android:textSize="20sp"
+    android:ellipsize="end"
+    android:text="标题:"
+    android:lines="1"/>
+ <TextView
+     android:id="@+id/school_tv2"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_toRightOf="@+id/school_image"
+     android:layout_below="@+id/school_tv1"
+     android:text="用户在活动板块上发表信息的内容："
+     android:textSize="18sp"
+     android:paddingLeft="20dp"
+     android:layout_marginTop="8dp"/>
+    </RelativeLayout>
+
+</LinearLayout>
