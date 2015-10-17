@@ -64,6 +64,24 @@
             android:name=".Activitys.AuthPage"
             android:label="@string/title_activity_auth_page" >
         </activity>
+        <activity
+            android:name=".Activitys.NewsActivity"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:parentActivityName=".Activitys.MainActivity"
+            >
+        </activity>
+        <activity
+            android:name=".Activitys.BaoMingActivity"
+            android:label="返回"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:parentActivityName=".Activitys.NewsActivity">
+
+        </activity>
+        <activity android:name=".Activitys.PartTime_Detail"
+            android:label="兼职"
+            android:theme="@style/AppThemePartTime"
+            android:parentActivityName=".Activitys.MainActivity">
+        </activity>
     </application>
 
 </manifest>

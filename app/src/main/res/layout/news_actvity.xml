@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/news_activity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:orientation="vertical"
+       >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:textSize="22sp"
+            android:text="陈念萱：只用三分钟决定一场旅行"
+            android:textColor="@color/black"
+            android:lines="2"
+            android:ellipsize="end"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/time_textview"
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:textSize="15sp"
+                android:text="2015-10-10"
+                android:layout_marginLeft="15dp"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_toRightOf="@+id/time_textview"
+                android:text="肇庆学院学生会XX"
+                android:textSize="15sp"
+                android:layout_marginLeft="15dp"
+                />
+            <ImageView
+                android:id="@+id/news_Imageview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/appmain_subject_1"
+                android:layout_below="@+id/time_textview"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/content_textview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:text="123"
+            android:textSize="15sp"
+            android:lines="16"
+            android:lineSpacingExtra="5dp"
+
+            android:scrollbars="vertical"/>
+        <Button
+            android:id="@+id/btn_baoming"
+            android:layout_width="95dp"
+            android:layout_height="24dp"
+            android:text="我要报名"
+            android:textColor="@color/white"
+            android:background="@color/green"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/content_textview"
+            android:layout_alignEnd="@+id/content_textview"
+            android:layout_marginBottom="6dp"
+          />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
