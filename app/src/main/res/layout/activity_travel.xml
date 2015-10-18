@@ -5,7 +5,22 @@
     android:orientation="vertical">
     <include layout="@layout/toolbar"></include>
     <org.smile.microcampus.Utils.ImageCycleView
-        android:id="@+id/ad_view"
+        android:id="@+id/image_cycle_view"
         android:layout_width="match_parent"
         android:layout_height="150dp" />
+    <GridView
+        android:id="@+id/grid_view_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/quarter_gray"
+        android:gravity="center"
+        android:verticalSpacing="1dp"
+        android:horizontalSpacing="1dp"
+        android:numColumns="4"/>
+    <GridView
+        android:id="@+id/grid_view_travel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:numColumns="2"/>
 </LinearLayout>

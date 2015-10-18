@@ -8,14 +8,6 @@
         <item name="colorControlNormal">@color/white</item>  <!--ActionBar控件颜色-->
     </style>
 
-
-    <style name="dot_style">
-        <item name="android:layout_width">5dip</item>
-        <item name="android:layout_height">5dip</item>
-        
-        <item name="android:layout_marginLeft">1.5dip</item>
-        <item name="android:layout_marginRight">1.5dip</item>
-    </style>
     <style name="AppThemePartTime" parent="Theme.AppCompat.Light">
         <item name="colorPrimaryDark">@color/green</item> <!--状态栏颜色-->
         <item name="colorPrimary">@color/green</item>  <!--ActionBar颜色-->

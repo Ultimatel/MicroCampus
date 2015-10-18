@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/grid_view_background"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        >
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
+        android:src="@drawable/guilin"/>
+    <TextView
+        android:id="@+id/image_title"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:text="桂林+阳朔三天四夜游,今日特价,逾时不再有，赶快打电话订购吧"/>
+    <FrameLayout
+        android:layout_width="160dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/original_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="￥1000"/>
+        <TextView
+            android:id="@+id/current_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:textColor="@color/orange"
+            android:text="￥600"/>
+    </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

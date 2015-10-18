@@ -51,7 +51,7 @@ public class AccommodationActivity extends AppCompatActivity {
         mImageUrl.add(imageUrl1);
         mImageUrl.add(imageUrl2);
         mImageUrl.add(imageUrl3);
-        mAdView = (ImageCycleView) findViewById(R.id.ad_view);
+        mAdView = (ImageCycleView) findViewById(R.id.image_cycle_view);
         mAdView.setImageResources(mImageUrl, mAdCycleViewListener, stype);
     }
 

@@ -7,7 +7,8 @@
     <color name="light_gray">#d3d3d3</color><!--亮灰色 -->
     <color name ="blue">#3366CC</color><!--棕色 -->
     <color name ="orange">#FF9900</color><!--棕色 -->
-    <color name="line">#F5F5F5</color>
+    <color name="half_gray">#7fdddbdb</color>
+    <color name="quarter_gray">#3fdddbdb</color>
 
     <color name="green">#2ef5b8</color>
 

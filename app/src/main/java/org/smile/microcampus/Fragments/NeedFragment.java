@@ -8,18 +8,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.Toast;
 
 import org.smile.microcampus.Activitys.AccommodationActivity;
-import org.smile.microcampus.Activitys.PackageBusActivity;
+import org.smile.microcampus.Activitys.BaoCheActivity;
 import org.smile.microcampus.Activitys.SupermarketActivity;
 import org.smile.microcampus.Activitys.TravelActivity;
-import org.smile.microcampus.Adapters.MyGridAdapter;
+import org.smile.microcampus.Adapters.CommonAdapter;
+import org.smile.microcampus.Adapters.ViewHolder;
 import org.smile.microcampus.R;
 import org.smile.microcampus.Utils.ImageCycleView;
-import org.smile.microcampus.Utils.MyGridView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 我需要模块
@@ -27,7 +31,13 @@ import java.util.ArrayList;
 public class NeedFragment extends Fragment {
 
     View view;
-    private MyGridView gridview;
+    private GridView gridview;
+    private String[] imageText = { "超市", "包车", "住宿", "旅游", "校联", "拍拍",
+            "聚会", "电影", "服务", };
+    private int[] images = { R.drawable.app_transfer, R.drawable.app_fund,R.drawable.app_creditcard,
+            R.drawable.app_plane, R.drawable.app_movie, R.drawable.app_game,
+            R.drawable.app_facepay, R.drawable.app_close,R.drawable.app_phonecharge  };
+    private List<Map> mDatas;
 
     private ImageCycleView mAdView;
     private ArrayList<String> mImageUrl = null;
@@ -47,8 +57,25 @@ public class NeedFragment extends Fragment {
     }
 
     private void initView() {
-        gridview = (MyGridView) view.findViewById(R.id.gridview);
-        gridview.setAdapter(new MyGridAdapter(getActivity()));
+        mDatas = new ArrayList<Map>();
+        for(int i = 0; i < images.length; i++){
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("images", images[i]);
+            map.put("imageText", imageText[i]);
+            mDatas.add(map);
+        }
+
+        gridview = (GridView) view.findViewById(R.id.grid_view_need);
+        gridview.setAdapter(new CommonAdapter<Map>(getActivity(), mDatas, R.layout.grid_item_need) {
+            @Override
+            public void convert(ViewHolder holder, Map map) {
+                holder.setImageResource(R.id.images ,Integer.parseInt(map.get("images").toString()));
+                holder.setText(R.id.image_text, map.get("imageText").toString());
+            }
+
+        });
+
+
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -58,7 +85,7 @@ public class NeedFragment extends Fragment {
                     startActivity(intent);
                     break;
                 case 1:  //包车
-                    Intent intent1 = new Intent(getActivity(), PackageBusActivity.class);
+                    Intent intent1 = new Intent(getActivity(), BaoCheActivity.class);
                     startActivity(intent1);
                     break;
                 case 2:  //住宿
@@ -79,7 +106,7 @@ public class NeedFragment extends Fragment {
         mImageUrl.add(imageUrl1);
         mImageUrl.add(imageUrl2);
         mImageUrl.add(imageUrl3);
-        mAdView = (ImageCycleView) view.findViewById(R.id.ad_view);
+        mAdView = (ImageCycleView) view.findViewById(R.id.image_cycle_view);
         mAdView.setImageResources(mImageUrl, mAdCycleViewListener, stype);
     }
 
