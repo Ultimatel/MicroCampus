@@ -52,7 +52,7 @@ public class PartTimeJob_Adapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Holder holder=null;
+        Holder holder;
         //判断当前的view是否为空，是的话就重新创建一个新的视图
         if(convertView==null){
             //初始化视图组件
