@@ -8,11 +8,12 @@
         android:layout_height="match_parent">
         <ImageView
             android:id="@+id/school_image"
-            android:layout_width="45dp"
-            android:layout_height="53dp"
-            android:src="@drawable/app_movie"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/p1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="3dp"
             />
-
 <TextView
     android:id="@+id/school_tv1"
     android:layout_width="match_parent"
@@ -22,6 +23,7 @@
     android:textSize="20sp"
     android:ellipsize="end"
     android:text="标题:"
+    android:textColor="@color/black"
     android:lines="1"/>
  <TextView
      android:id="@+id/school_tv2"
@@ -29,10 +31,12 @@
      android:layout_height="wrap_content"
      android:layout_toRightOf="@+id/school_image"
      android:layout_below="@+id/school_tv1"
-     android:text="用户在活动板块上发表信息的内容："
-     android:textSize="18sp"
-     android:paddingLeft="20dp"
-     android:layout_marginTop="8dp"/>
+     android:text="用户在活动板块上发表信息的内容：以两行显示，多了以····结束"
+     android:textSize="16sp"
+     android:paddingLeft="18dp"
+     android:layout_marginTop="18dp"
+     android:lines="2"
+     android:ellipsize="end"/>
     </RelativeLayout>
 
 </LinearLayout>

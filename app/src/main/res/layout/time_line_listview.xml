@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:id="@+id/time_line_listview">
-    <ListView
-        android:id="@+id/time_listview"
+    android:id="@+id/time_line_listview"
+    android:orientation="vertical">
+    <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:cacheColorHint="@null"
-      >
+        android:id="@+id/line_refresh">
+        <ListView
+            android:id="@+id/time_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@null"
+            />
+    </android.support.v4.widget.SwipeRefreshLayout>
 
-    </ListView>
 </LinearLayout>
