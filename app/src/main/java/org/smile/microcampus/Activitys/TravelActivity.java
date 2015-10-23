@@ -80,7 +80,7 @@ public class TravelActivity extends AppCompatActivity {
 
 
         mDatas = new ArrayList<Map>();
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < 20; i++){
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("image",R.drawable.guilin);
             map.put("imageTitle", "桂林+阳朔三天四夜游,今日特价,逾时不再有");
