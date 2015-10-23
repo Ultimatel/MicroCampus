@@ -96,7 +96,7 @@
             android:label="@string/title_activity_supermarket" >
         </activity>
         <activity
-            android:name=".Activitys.PackageBusActivity"
+            android:name=".Activitys.BaoCheActivity"
             android:label="@string/title_activity_package_bus" >
         </activity>
         <activity

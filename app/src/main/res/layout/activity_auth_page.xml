@@ -76,7 +76,7 @@
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="QQ登陆" />
+                android:text="QQ" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/weixin_login"
@@ -94,7 +94,7 @@
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="微信登陆" />
+                android:text="微信" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/weibo_login"
@@ -112,7 +112,7 @@
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="微博登陆" />
+                android:text="微博" />
         </LinearLayout>
 
 

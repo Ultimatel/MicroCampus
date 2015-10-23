@@ -4,17 +4,21 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.GridView;
+import android.widget.ListAdapter;
 import android.widget.Toast;
 
+import org.smile.microcampus.Adapters.CommonAdapter;
+import org.smile.microcampus.Adapters.ViewHolder;
 import org.smile.microcampus.R;
 import org.smile.microcampus.Utils.ImageCycleView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
-public class PackageBusActivity extends AppCompatActivity {
+public class BaoCheActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
     private ImageCycleView mAdView;
@@ -24,10 +28,13 @@ public class PackageBusActivity extends AppCompatActivity {
     private String imageUrl3 = "http://img.lakalaec.com/ad/e4229e25-3906-4049-9fe8-e2b52a98f6d1.jpg";
     public int stype = 1;  //游标是圆形还是长条，要是设置为0是长条，要是1就是圆形 默认是圆形
 
+    private GridView gridCity;
+    private ArrayList<String> listCity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_package_bus);
+        setContentView(R.layout.activity_bao_che);
         initView();
     }
 
@@ -50,15 +57,25 @@ public class PackageBusActivity extends AppCompatActivity {
         mImageUrl.add(imageUrl1);
         mImageUrl.add(imageUrl2);
         mImageUrl.add(imageUrl3);
-        mAdView = (ImageCycleView) findViewById(R.id.ad_view);
+        mAdView = (ImageCycleView) findViewById(R.id.image_cycle_view);
         mAdView.setImageResources(mImageUrl, mAdCycleViewListener, stype);
+
+        listCity = new ArrayList<String>(Arrays.asList("广州","深圳","佛山","珠海","中山","东莞","惠州","江门",
+                                            "清远","河源","茂名","湛江","阳江","汕头","汕尾","潮州","梅州"));
+        gridCity = (GridView) findViewById(R.id.grid_view_city);
+        gridCity.setAdapter((ListAdapter) (new CommonAdapter<String>(this,listCity, R.layout.grid_view_item ) {
+                    @Override
+                    public void convert(ViewHolder holder, String s) {
+                        holder.setText(R.id.grid_view_item_text, s);
+                    }
+                }));
     }
 
     private ImageCycleView.ImageCycleViewListener mAdCycleViewListener = new ImageCycleView.ImageCycleViewListener() {
         @Override
         public void onImageClick(int position, View imageView) {
             //单击图片处理事件
-            Toast.makeText(PackageBusActivity.this, "图片" + position, Toast.LENGTH_SHORT).show();
+            Toast.makeText(BaoCheActivity.this, "图片" + position, Toast.LENGTH_SHORT).show();
         }
     };
 

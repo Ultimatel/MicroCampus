@@ -7,12 +7,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.GridView;
+import android.widget.ListAdapter;
 import android.widget.Toast;
 
+import org.smile.microcampus.Adapters.CommonAdapter;
+import org.smile.microcampus.Adapters.ViewHolder;
 import org.smile.microcampus.R;
 import org.smile.microcampus.Utils.ImageCycleView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class TravelActivity extends AppCompatActivity {
 
@@ -24,6 +32,10 @@ public class TravelActivity extends AppCompatActivity {
     private String imageUrl3 = "http://img.lakalaec.com/ad/e4229e25-3906-4049-9fe8-e2b52a98f6d1.jpg";
     public int stype = 1;  //游标是圆形还是长条，要是设置为0是长条，要是1就是圆形 默认是圆形
 
+    private GridView gridPlace;
+    private ArrayList<String> listPlace;
+    private GridView gridList;
+    private List<Map> mDatas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +63,42 @@ public class TravelActivity extends AppCompatActivity {
         mImageUrl.add(imageUrl1);
         mImageUrl.add(imageUrl2);
         mImageUrl.add(imageUrl3);
-        mAdView = (ImageCycleView) findViewById(R.id.ad_view);
+        mAdView = (ImageCycleView) findViewById(R.id.image_cycle_view);
         mAdView.setImageResources(mImageUrl, mAdCycleViewListener, stype);
+
+
+        listPlace = new ArrayList<String>(Arrays.asList("阳江", "阳朔", "九龙湖", "北海", "海南",
+                "凤凰古城","张家界","九寨沟"));
+        gridPlace = (GridView) findViewById(R.id.grid_view_city);
+        gridPlace.setAdapter((ListAdapter) (new CommonAdapter<String>(this, listPlace, R.layout.grid_view_item) {
+            @Override
+            public void convert(ViewHolder holder, String s) {
+                holder.setText(R.id.grid_view_item_text, s);
+            }
+        }));
+
+
+
+        mDatas = new ArrayList<Map>();
+        for(int i = 0; i < 20; i++){
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("image",R.drawable.guilin);
+            map.put("imageTitle", "桂林+阳朔三天四夜游,今日特价,逾时不再有");
+            map.put("originalPrice", "￥1000");
+            map.put("currentPrice", "￥600");
+            mDatas.add(map);
+        }
+        gridList = (GridView) findViewById(R.id.grid_view_travel);
+        gridList.setAdapter(new CommonAdapter<Map>(this, mDatas, R.layout.grid_item_travel) {
+            @Override
+            public void convert(ViewHolder holder, Map map) {
+                holder.setImageResource(R.id.image, Integer.parseInt(map.get("image").toString()));
+                holder.setText(R.id.image_title, map.get("imageTitle").toString());
+                holder.setText(R.id.original_price, map.get("originalPrice").toString());
+                holder.setText(R.id.current_price, map.get("currentPrice").toString());
+            }
+
+        });
     }
 
     private ImageCycleView.ImageCycleViewListener mAdCycleViewListener = new ImageCycleView.ImageCycleViewListener() {

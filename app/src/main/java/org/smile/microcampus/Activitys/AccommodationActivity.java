@@ -7,12 +7,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import org.smile.microcampus.Adapters.CommonAdapter;
+import org.smile.microcampus.Adapters.ViewHolder;
 import org.smile.microcampus.R;
 import org.smile.microcampus.Utils.ImageCycleView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class AccommodationActivity extends AppCompatActivity {
 
@@ -23,6 +29,9 @@ public class AccommodationActivity extends AppCompatActivity {
     private String imageUrl2 = "http://img.lakalaec.com/ad/cb56a1a6-6c33-41e4-9c3c-363f4ec6b728.jpg";
     private String imageUrl3 = "http://img.lakalaec.com/ad/e4229e25-3906-4049-9fe8-e2b52a98f6d1.jpg";
     public int stype = 1;  //游标是圆形还是长条，要是设置为0是长条，要是1就是圆形 默认是圆形
+
+    private ListView listApartment;
+    private List<Map> mDatas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +60,34 @@ public class AccommodationActivity extends AppCompatActivity {
         mImageUrl.add(imageUrl1);
         mImageUrl.add(imageUrl2);
         mImageUrl.add(imageUrl3);
-        mAdView = (ImageCycleView) findViewById(R.id.ad_view);
+        mAdView = (ImageCycleView) findViewById(R.id.image_cycle_view);
         mAdView.setImageResources(mImageUrl, mAdCycleViewListener, stype);
+
+        mDatas = new ArrayList<Map>();
+        for(int i = 0; i < 20; i++){
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("apartment",R.drawable.apartment);
+            map.put("apartment_title", "澳威C酒店公寓");
+            map.put("apartment_evaluation", " 3.5分");
+            map.put("apartment_price", "￥40/每晚");
+            map.put("apartment_position", "端州区 距离1km");
+            map.put("month_sale", "月售：177单");
+            mDatas.add(map);
+        }
+        listApartment = (ListView) findViewById(R.id.list_view_apartment);
+        listApartment.setAdapter(new CommonAdapter<Map>(this, mDatas, R.layout.list_item_accommodation) {
+            @Override
+            public void convert(ViewHolder holder, Map map) {
+                holder.setImageResource(R.id.apartment, Integer.parseInt(map.get("apartment").toString()));
+                holder.setText(R.id.apartment_title, map.get("apartment_title").toString());
+                holder.setText(R.id.apartment_evaluation, map.get("apartment_evaluation").toString());
+                holder.setText(R.id.apartment_price, map.get("apartment_price").toString());
+                holder.setText(R.id.apartment_position, map.get("apartment_position").toString());
+                holder.setText(R.id.month_sale, map.get("month_sale").toString());
+            }
+        });
+
+
     }
 
     private ImageCycleView.ImageCycleViewListener mAdCycleViewListener = new ImageCycleView.ImageCycleViewListener() {

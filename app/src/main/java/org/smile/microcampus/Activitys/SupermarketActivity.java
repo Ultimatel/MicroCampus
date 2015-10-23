@@ -4,15 +4,19 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import org.smile.microcampus.Adapters.CommonAdapter;
+import org.smile.microcampus.Adapters.ViewHolder;
 import org.smile.microcampus.R;
 import org.smile.microcampus.Utils.ImageCycleView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class SupermarketActivity extends AppCompatActivity {
     private Toolbar mToolbar;
@@ -23,6 +27,8 @@ public class SupermarketActivity extends AppCompatActivity {
     private String imageUrl3 = "http://img.lakalaec.com/ad/e4229e25-3906-4049-9fe8-e2b52a98f6d1.jpg";
     public int stype = 1;  //游标是圆形还是长条，要是设置为0是长条，要是1就是圆形 默认是圆形
 
+    private ListView listSupermarket;
+    private List<Map> mDatas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +55,30 @@ public class SupermarketActivity extends AppCompatActivity {
         mImageUrl.add(imageUrl1);
         mImageUrl.add(imageUrl2);
         mImageUrl.add(imageUrl3);
-        mAdView = (ImageCycleView) findViewById(R.id.ad_view);
+        mAdView = (ImageCycleView) findViewById(R.id.image_cycle_view);
         mAdView.setImageResources(mImageUrl, mAdCycleViewListener, stype);
+
+        mDatas = new ArrayList<Map>();
+        for(int i = 0; i < 20; i++){
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("supermarket_image",R.drawable.supermarket);
+            map.put("supermarket_title", "及时送668");
+            map.put("month_sale", " 月售100单");
+            map.put("send_price", "起送价￥10");
+            map.put("send_time", "30分钟送达");
+            mDatas.add(map);
+        }
+        listSupermarket = (ListView) findViewById(R.id.list_view_supermarket);
+        listSupermarket.setAdapter(new CommonAdapter<Map>(this, mDatas, R.layout.list_item_supermarket) {
+            @Override
+            public void convert(ViewHolder holder, Map map) {
+                holder.setImageResource(R.id.supermarket_image, Integer.parseInt(map.get("supermarket_image").toString()));
+                holder.setText(R.id.supermarket_title, map.get("supermarket_title").toString());
+                holder.setText(R.id.month_sale, map.get("month_sale").toString());
+                holder.setText(R.id.send_price, map.get("send_price").toString());
+                holder.setText(R.id.send_time, map.get("send_time").toString());
+            }
+        });
     }
 
     private ImageCycleView.ImageCycleViewListener mAdCycleViewListener = new ImageCycleView.ImageCycleViewListener() {

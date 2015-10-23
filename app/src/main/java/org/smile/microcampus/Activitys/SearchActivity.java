@@ -30,7 +30,7 @@ import android.widget.SimpleAdapter;
 import android.os.Build;
 public class SearchActivity extends AppCompatActivity {
 
-    EditText eSearch;
+    EditText searchContent;
     ImageView ivDeleteText;
     ListView mListView;
     LinearLayout backBtn;
@@ -53,7 +53,7 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     public void initView(){
-        mListView = (ListView) findViewById(R.id.mListView);
+        mListView = (ListView) findViewById(R.id.list_search_result);
         getmData(mData);
         adapter = new SimpleAdapter(this,mData,android.R.layout.simple_list_item_2,
                 new String[]{"title","text"},new int[]{android.R.id.text1,android.R.id.text2});
@@ -71,8 +71,8 @@ public class SearchActivity extends AppCompatActivity {
      * 设置搜索框的文本更改时的监听器
      */
     private void set_eSearch_TextChanged(){
-        eSearch = (EditText) findViewById(R.id.etSearch);
-        eSearch.addTextChangedListener(new TextWatcher() {
+        searchContent = (EditText) findViewById(R.id.search_content);
+        searchContent.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
                 //这个应该是在改变的时候会做的动作吧，具体还没用到过。
@@ -104,7 +104,7 @@ public class SearchActivity extends AppCompatActivity {
     Runnable eChanged = new Runnable() {
         @Override
         public void run() {
-            String data = eSearch.getText().toString();
+            String data = searchContent.getText().toString();
             mData.clear();//先要清空，不然会叠加
             getmDataSub(mData, data);//获取更新数据
             adapter.notifyDataSetChanged();//更新
@@ -137,7 +137,7 @@ public class SearchActivity extends AppCompatActivity {
         ivDeleteText.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                eSearch.setText("");
+                searchContent.setText("");
             }
         });
     }

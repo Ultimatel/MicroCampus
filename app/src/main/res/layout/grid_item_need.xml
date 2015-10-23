@@ -8,20 +8,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:background="@drawable/bg_gv"
+        android:background="@drawable/grid_view_background"
         android:padding="25dp" >
 
         <ImageView
-            android:id="@+id/iv_item"
+            android:id="@+id/images"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerHorizontal="true" />
 
         <TextView
-            android:id="@+id/tv_item"
+            android:id="@+id/image_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/iv_item"
+            android:layout_below="@id/images"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
             android:maxLines="1"
