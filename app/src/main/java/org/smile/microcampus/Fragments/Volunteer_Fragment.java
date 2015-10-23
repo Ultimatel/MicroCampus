@@ -18,10 +18,7 @@ public class Volunteer_Fragment extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.voluntee_listview,container,false);
-
         return view;
-
-
     }
 
 }
