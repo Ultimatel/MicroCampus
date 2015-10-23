@@ -69,7 +69,7 @@ public class School_ActivityAdapter extends BaseAdapter{
 
         viewHolder.title.setText(title);
         viewHolder.content.setText(content);
-
+        viewHolder.imageView.setImageResource(listItem.get(position).getImageView());
         return v;
 
     }

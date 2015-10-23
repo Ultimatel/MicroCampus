@@ -30,10 +30,6 @@ public class NewsActivity extends BaseActivity implements View.OnClickListener {
                         "       一个人的旅行的那样的美好，那样的随意，不用考虑太多的东西，旅行的目的地随自己的心情而设定，说去哪就去哪，想干嘛就干嘛，无拘无束，甚是让人喜悦，更重要的是单人旅行可以安抚那个被世事挫伤的心灵。一个人可以独自享受安静的快乐，去追寻曾经遗失的美好，努力拼凑那些记忆的碎片，生怕会漏掉一片记忆，留下令人追悔的遗憾。那些记忆，有一起开心的笑，一起感动的哭，这些都是属于我们的记忆。"
 
         );
-       int s= textView.getText().length();//用来做展开和隐藏按钮的字数
-        if(s>120){
-            textView.setMovementMethod(new ScrollingMovementMethod());
-        }
     }
     @Override
     protected void initActionBar() {

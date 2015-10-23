@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -74,13 +75,18 @@ public void initView(){
                 Intent intent=new Intent(getActivity(), NewsActivity.class);
                 startActivity(intent);
             }
-
         }
     });
 
 }
     public List<ActivityMessages> acess(){
-
+        int []imageViews=new int[]{
+                R.drawable.p2,R.drawable.p3,
+                R.drawable.p4,R.drawable.p5,
+                R.drawable.p6,R.drawable.p7,
+                R.drawable.p9,R.drawable.p10,
+                R.drawable.p11,R.drawable.p13
+        };
         String []title={"你若军训","德玛西亚","大学指南","女神男神","翰墨池","你若军训","德玛西亚","大学指南","女神男神","翰墨池"};
         String []content={"便是晴天","你个傻逼","肇庆学院的必备生存软件，哈哈","不知道该说些什么好了","一个约会的好地方，额，目前是这样认为","便是晴天","你个傻逼","肇庆学院的必备生存软件，哈哈","不知道该说些什么好了","一个约会的好地方，额，目前是这样认为"};
           if(aList.size()==0){
@@ -88,13 +94,12 @@ public void initView(){
                   actvityMessages=new ActivityMessages();
                   actvityMessages.setTitle(title[i]);
                   actvityMessages.setContent(content[i]);
+                  actvityMessages.setImageView(imageViews[i]);
                   aList.add(actvityMessages);
           }
-
         }
         return aList;
     }
-
 
     @Override
     public void onRefresh() {

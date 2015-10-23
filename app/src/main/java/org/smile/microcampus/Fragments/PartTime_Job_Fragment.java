@@ -64,7 +64,8 @@ public class PartTime_Job_Fragment extends Fragment implements SwipeRefreshLayou
         swipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.line_refresh);
         swipeLayout.setOnRefreshListener(this);
         //设置刷新时动画的颜色，可以设置4个
-        swipeLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
+        swipeLayout.setColorSchemeResources(
+                android.R.color.holo_blue_bright,
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);

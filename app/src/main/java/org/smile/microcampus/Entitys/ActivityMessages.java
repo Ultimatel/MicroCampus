@@ -1,5 +1,6 @@
 package org.smile.microcampus.Entitys;
 
+import android.view.View;
 import android.widget.ImageView;
 
 /**
@@ -8,14 +9,15 @@ import android.widget.ImageView;
 public class ActivityMessages {
     private String title;
     private  String content;
-    private ImageView imageView;
+    private int imageId;
     public ActivityMessages() {
 
     }
 
-    public ActivityMessages(String title,String content){
+    public ActivityMessages(String title,String content,int imageId){
         this.title=title;
         this.content=content;
+        this.imageId=imageId;
     }
 
     public String getTitle() {
@@ -34,11 +36,13 @@ public class ActivityMessages {
         this.content = content;
     }
 
-    public ImageView getImageView() {
-        return imageView;
+    public int getImageView() {
+        return imageId;
     }
 
-    public void setImageView(ImageView imageView) {
-        this.imageView = imageView;
+    public void setImageView(int  imageId) {
+        this.imageId = imageId;
     }
+
+
 }

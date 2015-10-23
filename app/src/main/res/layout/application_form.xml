@@ -52,9 +52,9 @@
         android:layout_toRightOf="@+id/textview_name1"
         android:layout_below="@+id/textview_name1"
         android:layout_marginTop="15dp"
-        android:phoneNumber="true"
-        android:hint="电话号码或者QQ或者微信"
+        android:hint="电话号码"
         android:textSize="15sp"
+        android:inputType="phone"
         android:layout_marginLeft="45dp"/>
 
 </RelativeLayout>

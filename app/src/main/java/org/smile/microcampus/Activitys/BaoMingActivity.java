@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,7 +34,6 @@ public class BaoMingActivity extends BaseActivity implements View.OnClickListene
         editText1= (EditText) findViewById(R.id.edtext_name);
         editText2= (EditText) findViewById(R.id.edtext_name1);
         editText3= (EditText) findViewById(R.id.edtext_name2);
-        editText3.setInputType((TYPE_TEXT_VARIATION_EMAIL_ADDRESS ));//设置可以填入邮箱地址
         edtiForm= (EditText) findViewById(R.id.content_form);
         btnCommit= (Button) findViewById(R.id.btn_commit);
         btnCommit.setOnClickListener(this);
