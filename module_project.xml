@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_project" default="compile.module.project">
+  <dirname property="module.project.basedir" file="${ant.file.module_project}"/>
+  
+  <property name="module.jdk.home.project" value="${jdk.home.1.8}"/>
+  <property name="module.jdk.bin.project" value="${jdk.bin.1.8}"/>
+  <property name="module.jdk.classpath.project" value="jdk.classpath.1.8"/>
+  
+  <property name="compiler.args.project" value="-encoding GBK -source 1.6 ${compiler.args}"/>
+  
+  <property name="project.output.dir" value="${module.project.basedir}/build"/>
+  <property name="project.testoutput.dir" value="${module.project.basedir}/build"/>
+  
+  <path id="project.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="project.module.production.classpath">
+    <path refid="${module.jdk.classpath.project}"/>
+  </path>
+  
+  <path id="project.runtime.production.module.classpath">
+    <pathelement location="${project.output.dir}"/>
+  </path>
+  
+  <path id="project.module.classpath">
+    <path refid="${module.jdk.classpath.project}"/>
+    <pathelement location="${project.output.dir}"/>
+  </path>
+  
+  <path id="project.runtime.module.classpath">
+    <pathelement location="${project.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.project">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.project">
+    <patternset refid="excluded.from.module.project"/>
+  </patternset>
+  
+  
+  <target name="compile.module.project" depends="compile.module.project.production,compile.module.project.tests" description="Compile module project"/>
+  
+  <target name="compile.module.project.production" depends="register.custom.compilers" description="Compile module project; production classes"/>
+  
+  <target name="compile.module.project.tests" depends="register.custom.compilers,compile.module.project.production" description="compile module project; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.project" description="cleanup module">
+    <delete dir="${project.output.dir}"/>
+    <delete dir="${project.testoutput.dir}"/>
+  </target>
+</project>
