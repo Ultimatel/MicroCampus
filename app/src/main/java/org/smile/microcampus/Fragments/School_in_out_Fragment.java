@@ -90,6 +90,7 @@ public void initView(){
         String []title={"你若军训","德玛西亚","大学指南","女神男神","翰墨池","你若军训","德玛西亚","大学指南","女神男神","翰墨池"};
         String []content={"便是晴天","你个傻逼","肇庆学院的必备生存软件，哈哈","不知道该说些什么好了","一个约会的好地方，额，目前是这样认为","便是晴天","你个傻逼","肇庆学院的必备生存软件，哈哈","不知道该说些什么好了","一个约会的好地方，额，目前是这样认为"};
           if(aList.size()==0){
+
               for(int i=0;i<title.length;i++){
                   actvityMessages=new ActivityMessages();
                   actvityMessages.setTitle(title[i]);
