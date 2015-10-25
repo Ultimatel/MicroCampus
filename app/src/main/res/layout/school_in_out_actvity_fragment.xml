@@ -24,7 +24,7 @@
     android:ellipsize="end"
     android:text="标题:"
     android:layout_marginTop="5dp"
-    android:textColor="@color/deep_green"
+    android:textColor="@color/green"
     android:lines="1"/>
  <TextView
      android:id="@+id/school_tv2"

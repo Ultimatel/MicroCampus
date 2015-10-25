@@ -1,12 +1,15 @@
 package org.smile.microcampus.Fragments;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
+import org.smile.microcampus.Activitys.NewsActivity;
 import org.smile.microcampus.Adapters.CommonAdapter;
 import org.smile.microcampus.Adapters.ViewHolder;
 import org.smile.microcampus.R;
@@ -32,7 +35,7 @@ public class Volunteer_Fragment extends Fragment  implements SwipeRefreshLayout.
             "开展保护母亲河志愿服务活动。以“保护母亲河，让天更蓝、水更清、环境更优美”作为我们的宣传主题。",
             "开展保护母亲河志愿服务活动。以“保护母亲河，让天更蓝、水更清、环境更优美”作为我们的宣传主题。",
             "开展保护母亲河志愿服务活动。以“保护母亲河，让天更蓝、水更清、环境更优美”作为我们的宣传主题。"};
-    private String score[]={"+  0.2","+  0.3","+  0.2","+  0.2","+  0.4","+  0.2","+  0.2","+  0.2"};
+    private String score[]={"+ 0.2","+ 0.3","+ 0.2","+ 0.2","+ 0.4","+ 0.2","+ 0.2","+ 0.2"};
     private List<Map> vDatas;
     private ListView vListView;
     private SwipeRefreshLayout swipeLayout;
@@ -71,6 +74,13 @@ public class Volunteer_Fragment extends Fragment  implements SwipeRefreshLayout.
                  android.R.color.holo_green_light,
                  android.R.color.holo_orange_light,
                  android.R.color.holo_red_light);
+         vListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+             @Override
+             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                 Intent intent=new Intent(getActivity(), NewsActivity.class);
+                 startActivity(intent);
+             }
+         });
      }
 
     @Override

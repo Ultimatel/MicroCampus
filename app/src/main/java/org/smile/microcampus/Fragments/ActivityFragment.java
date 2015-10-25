@@ -20,15 +20,11 @@ import org.smile.microcampus.Utils.FragmentsFactory;
 public class ActivityFragment extends Fragment implements  View.OnClickListener,ViewPager.OnPageChangeListener{
 
     View view;
-
     private LinearLayout layout1,layout2,layout3;
     private TextView textView1,textView2,textView3;
     private ViewPager aViewPager;
     private int currentIndex = 0;//当前标签页
-    public ActivityFragment() {
-
-    }
-
+    public ActivityFragment() {}
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

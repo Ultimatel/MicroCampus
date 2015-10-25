@@ -3,10 +3,9 @@ package org.smile.microcampus.Activitys;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
-import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import org.smile.microcampus.R;
 import org.smile.microcampus.Utils.BaseActivity;
@@ -23,6 +22,7 @@ public class NewsActivity extends BaseActivity implements View.OnClickListener {
     public void initView() {
         setContentView(R.layout.news_actvity);
         baoming = (Button) findViewById(R.id.btn_baoming);
+
         baoming.setOnClickListener(this);
         textView = (TextView) findViewById(R.id.content_textview);
         textView.setText("      是孤独久了，是寂寞惯了，还是太过伤感了，我不知道，突然想一个人去旅行，去完成向往已久的单人旅行，在旅行中寻找那个迷失的自己，找回那个积极乐观的我。\n" +

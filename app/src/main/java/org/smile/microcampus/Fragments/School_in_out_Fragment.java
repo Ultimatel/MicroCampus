@@ -5,21 +5,26 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ImageView;
+
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.smile.microcampus.Activitys.NewsActivity;
-import org.smile.microcampus.Adapters.School_ActivityAdapter;
-import org.smile.microcampus.Entitys.ActivityMessages;
+import org.smile.microcampus.Activitys.Post_ActivityMessages;
+import org.smile.microcampus.Adapters.CommonAdapter;
+import org.smile.microcampus.Adapters.ViewHolder;
 import org.smile.microcampus.R;
-
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -27,18 +32,31 @@ import java.util.List;
  */
 public class School_in_out_Fragment extends Fragment  implements SwipeRefreshLayout.OnRefreshListener{
 
+    int []images=new int[]{
+            R.drawable.p2,R.drawable.p3,
+            R.drawable.p4,R.drawable.p5,
+            R.drawable.p6,R.drawable.p7,
+            R.drawable.p9,R.drawable.p10,
+            R.drawable.p11,R.drawable.p13
+    };
+    String []title={"你若军训","德玛西亚","大学指南","女神男神","翰墨池","你若军训","德玛西亚","大学指南","女神男神","翰墨池"};
+    String []content={"便是晴天","你个傻逼","肇庆学院的必备生存软件，哈哈","不知道该说些什么好了","一个约会的好地方，额，目前是这样认为","便是晴天","你个傻逼","肇庆学院的必备生存软件，哈哈","不知道该说些什么好了","一个约会的好地方，额，目前是这样认为"};
+
     View view;
     private static View loadMoreView;
     private ListView slistView;
-    private School_ActivityAdapter school_in_out_adapter;
-    private List<ActivityMessages> aList=new ArrayList<ActivityMessages>();
-    private ActivityMessages actvityMessages;
+    private List<Map> sDatas;
     private TextView loadMoreText;
     private SwipeRefreshLayout  swipeLayout;
     public School_in_out_Fragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,13 +68,27 @@ public class School_in_out_Fragment extends Fragment  implements SwipeRefreshLay
     }
 
 public void initView(){
-    acess();
+
+    sDatas=new ArrayList<Map>();
+    for(int i=0;i<images.length;i++){
+        Map<String,Object>map=new HashMap<String,Object>();
+        map.put("image",images[i]);
+        map.put("title",title[i]);
+        map.put("content",content[i]);
+        sDatas.add(map);
+    }
     slistView= (ListView) view.findViewById(R.id.school_listview);
+    slistView.setAdapter(new CommonAdapter<Map>(getActivity(),sDatas,R.layout.school_in_out_actvity_fragment) {
+        @Override
+        public void convert(ViewHolder holder, Map map) {
+           holder.setImageResource(R.id.school_image,Integer.parseInt(map.get("image").toString()));
+           holder.setText(R.id.school_tv1, map.get("title").toString());
+           holder.setText(R.id.school_tv2,map.get("content").toString());
+        }
+    });
     loadMoreView=getActivity().getLayoutInflater().inflate(R.layout.load_more,null);
     loadMoreText= (TextView) loadMoreView.findViewById(R.id.load_more);
-    school_in_out_adapter=new School_ActivityAdapter(getActivity(),R.layout.school_in_out_actvity_fragment,aList);
     slistView.addFooterView(loadMoreView);
-    slistView.setAdapter(school_in_out_adapter);
     swipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.refersh_listview);
     swipeLayout.setOnRefreshListener(this);
     //设置刷新时动画的颜色，可以设置4个
@@ -67,44 +99,35 @@ public void initView(){
     slistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            if(position==aList.size()){
+            if (position == sDatas.size()) {
                 loadMoreText.setText("加载中···");
                 //后期加点击加载更多信息内容
-                Toast.makeText(getActivity(),"加载更多",Toast.LENGTH_SHORT).show();}
-            else {
-                Intent intent=new Intent(getActivity(), NewsActivity.class);
+                Toast.makeText(getActivity(), "加载更多", Toast.LENGTH_SHORT).show();
+            } else {
+                Intent intent = new Intent(getActivity(), NewsActivity.class);
                 startActivity(intent);
             }
         }
     });
-
 }
-    public List<ActivityMessages> acess(){
-        int []imageViews=new int[]{
-                R.drawable.p2,R.drawable.p3,
-                R.drawable.p4,R.drawable.p5,
-                R.drawable.p6,R.drawable.p7,
-                R.drawable.p9,R.drawable.p10,
-                R.drawable.p11,R.drawable.p13
-        };
-        String []title={"你若军训","德玛西亚","大学指南","女神男神","翰墨池","你若军训","德玛西亚","大学指南","女神男神","翰墨池"};
-        String []content={"便是晴天","你个傻逼","肇庆学院的必备生存软件，哈哈","不知道该说些什么好了","一个约会的好地方，额，目前是这样认为","便是晴天","你个傻逼","肇庆学院的必备生存软件，哈哈","不知道该说些什么好了","一个约会的好地方，额，目前是这样认为"};
-          if(aList.size()==0){
-
-              for(int i=0;i<title.length;i++){
-                  actvityMessages=new ActivityMessages();
-                  actvityMessages.setTitle(title[i]);
-                  actvityMessages.setContent(content[i]);
-                  actvityMessages.setImageView(imageViews[i]);
-                  aList.add(actvityMessages);
-          }
-        }
-        return aList;
-    }
-
     @Override
     public void onRefresh() {
        //暂时不做刷新
         swipeLayout.setRefreshing(false);   //加载完数据后，隐藏刷新进度条
+    }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_post, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.post_menu:
+            Intent intent1=new Intent(getActivity(), Post_ActivityMessages.class);
+            startActivity(intent1);
+        }
+        return true;
     }
 }

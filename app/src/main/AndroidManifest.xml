@@ -109,6 +109,9 @@
             android:name=".Activitys.TravelActivity"
             android:label="@string/title_activity_travel" >
         </activity>
+        <activity android:name=".Activitys.Post_ActivityMessages"
+            android:label="Post_ActivityMessages">
+        </activity>
     </application>
 
 </manifest>
