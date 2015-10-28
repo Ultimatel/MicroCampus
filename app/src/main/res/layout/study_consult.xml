@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="3dp">
+        <ImageView
+            android:id="@+id/school_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/p5"
+            android:layout_marginLeft="5dp"
+
+            />
+        <TextView
+            android:id="@+id/study_consult_tv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/school_image"
+            android:paddingLeft="15dp"
+            android:textSize="16sp"
+            android:ellipsize="end"
+            android:text="标题:"
+
+            android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/study_consult_tv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/school_image"
+            android:layout_below="@+id/study_consult_tv1"
+            android:text="用户在活动板块上发表信息的内容：以两行显示，多了以····结束"
+            android:textSize="14sp"
+            android:paddingLeft="18dp"
+            android:lines="3"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="4dp"
+
+            android:ellipsize="end"/>
+    </RelativeLayout>
+</LinearLayout>

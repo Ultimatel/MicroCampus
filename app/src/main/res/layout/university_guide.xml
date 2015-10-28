@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <!--<ImageView
+            android:id="@+id/guide_line"
+            android:layout_width="5dp"
+            android:layout_height="153dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"/>-->
+       <!--   <ImageView
+            android:id="@+id/guide_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/p2"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            /> -->
+        <org.smile.microcampus.Utils.CircleImageView
+            android:id="@+id/guide_user_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/p10"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp" />
+        <TextView
+            android:id="@+id/guide_tv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/guide_user_image"
+            android:text="djaiodf"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:singleLine="true"/>
+        <TextView
+            android:id="@+id/guide_tv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/guide_user_image"
+            android:text="dsiaga"
+            android:layout_marginLeft="15dp"
+            android:textSize="15sp"
+            android:layout_marginRight="3dp"
+            android:layout_marginTop="3dp"/>
+        <TextView
+            android:id="@+id/guide_btn"
+            android:layout_width="40dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/guide_tv2"
+            android:focusable="false"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="5dp"
+            android:text="全文"
+            android:textSize="15sp"
+            android:textColor="@color/blue"
+
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

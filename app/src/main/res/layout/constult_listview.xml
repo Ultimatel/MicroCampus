@@ -5,14 +5,13 @@
     <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/voluntee_refresh">
+        android:id="@+id/constult_refresh">
         <ListView
-            android:id="@+id/vlistview"
+            android:id="@+id/clistview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:cacheColorHint="@null"
-            android:dividerHeight="3dp"
+            android:dividerHeight="8dp"
             />
     </android.support.v4.widget.SwipeRefreshLayout>
-
 </LinearLayout>

@@ -82,9 +82,6 @@
 
         </activity>
         <activity android:name=".Activitys.PartTime_Detail"
-            android:label="兼职"
-            android:theme="@style/AppThemePartTime"
-            android:parentActivityName=".Activitys.MainActivity"
             >
         </activity>
         <activity
@@ -112,6 +109,8 @@
         <activity android:name=".Activitys.Post_ActivityMessages"
             android:label="Post_ActivityMessages">
         </activity>
+        <activity android:name=".Activitys.CuslutQuestion"></activity>
+        <activity android:name=".Activitys.AddAnswerActivity"></activity>
     </application>
 
 </manifest>

@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import org.smile.microcampus.Activitys.PartTime_Detail;
 import org.smile.microcampus.Adapters.PartTimeJob_Adapter;
-import org.smile.microcampus.Entitys.ActivityMessages;
 import org.smile.microcampus.R;
 import org.smile.microcampus.Utils.DateComparator;
 import org.smile.microcampus.Utils.DateText;
