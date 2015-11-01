@@ -1,4 +1,5 @@
 package org.smile.microcampus.Fragments;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -7,12 +8,16 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.SimpleOnPageChangeListener;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import org.smile.microcampus.Activitys.Post_ActivityMessages;
 import org.smile.microcampus.R;
 import org.smile.microcampus.Utils.FragmentsFactory;
 
@@ -35,6 +40,7 @@ public class ActivityFragment extends Fragment implements  View.OnClickListener,
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.activity_parttime_volunteer,container,false);
+        setHasOptionsMenu(true);
         initView();
         return view;
     }
@@ -129,6 +135,24 @@ public class ActivityFragment extends Fragment implements  View.OnClickListener,
             return 3;
         }
 
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        getActivity().getMenuInflater().inflate(R.menu.menu_post, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.post_menu:// 发表活动信息
+                Intent intent1=new Intent(getActivity(), Post_ActivityMessages.class);
+                startActivity(intent1);break;
+        }
+        return true;
     }
 
 }

@@ -57,7 +57,7 @@ public class School_in_out_Fragment extends Fragment  implements SwipeRefreshLay
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.school_in_out_listview,container,false);
-        setHasOptionsMenu(true);
+
         initView();
 
         return view ;
@@ -111,21 +111,5 @@ public void initView(){
        //暂时不做刷新
         swipeLayout.setRefreshing(false);   //加载完数据后，隐藏刷新进度条
     }
-   @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-       getActivity().getMenuInflater().inflate(R.menu.menu_post,menu);
-       super.onCreateOptionsMenu(menu, inflater);
 
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.post_menu:// 发表活动信息
-            Intent intent1=new Intent(getActivity(), Post_ActivityMessages.class);
-            startActivity(intent1);break;
-        }
-        return true;
-    }
 }

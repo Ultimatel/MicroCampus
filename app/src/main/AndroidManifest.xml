@@ -6,7 +6,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,67 +24,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.mob.tools.MobUIShell"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="stateHidden|adjustResize" >
-            <intent-filter>
-                <data android:scheme="tencent222222" />
-
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <!-- 微信分享回调 -->
-        <activity
-            android:name="cn.sharesdk.demo.wxapi.WXEntryActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <!-- QQ客户端回调 -->
-        <activity
-            android:name="cn.sharesdk.tencent.qq.ResultReceiver"
-            android:launchMode="singleTask"
-            android:noHistory="true" >
-
-            <!--
-            如果集成QQ分享，或者使用QQ客户端来进行QQ空间的分享，须要在此处添加一个对ACTION_VIEW
-            事件的过滤器，其中的scheme是“tencent”前缀再开发者应用的加上appId。如果此过滤器不设置，
-            则分享结束以后不能得到正确的回调
-            -->
-            <intent-filter android:priority="1000" >
-                <data android:scheme="tencent222222" />
-
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".Activitys.AuthPage"
             android:label="@string/title_activity_auth_page" >
         </activity>
         <activity
-
             android:name=".Activitys.NewsActivity"
-            android:theme="@style/Theme.AppCompat.Light"
             android:parentActivityName=".Activitys.MainActivity"
-            >
+            android:theme="@style/Theme.AppCompat.Light" >
         </activity>
         <activity
             android:name=".Activitys.BaoMingActivity"
             android:label="返回"
-            android:theme="@style/Theme.AppCompat.Light"
-            android:parentActivityName=".Activitys.NewsActivity">
-
+            android:parentActivityName=".Activitys.NewsActivity"
+            android:theme="@style/Theme.AppCompat.Light" >
         </activity>
-        <activity android:name=".Activitys.PartTime_Detail"
-            >
+        <activity android:name=".Activitys.PartTime_Detail" >
         </activity>
         <activity
             android:name=".Activitys.SearchActivity"
@@ -100,17 +56,58 @@
             android:name=".Activitys.AccommodationActivity"
             android:label="@string/title_activity_accommodation" >
         </activity>
-        <activity android:name=".Activitys.PersanalPage"
-        android:label="@string/title_activity_persanal_page" ></activity>
+        <activity
+            android:name=".Activitys.PersanalPage"
+            android:label="@string/title_activity_persanal_page" />
         <activity
             android:name=".Activitys.TravelActivity"
             android:label="@string/title_activity_travel" >
         </activity>
-        <activity android:name=".Activitys.Post_ActivityMessages"
-            android:label="Post_ActivityMessages">
+        <activity
+            android:name=".Activitys.Post_ActivityMessages"
+            android:label="Post_ActivityMessages" >
         </activity>
-        <activity android:name=".Activitys.CuslutQuestion"></activity>
-        <activity android:name=".Activitys.AddAnswerActivity"></activity>
+        <activity android:name=".Activitys.CuslutQuestion" />
+        <activity android:name=".Activitys.AddAnswerActivity" />
+        <activity
+            android:name=".Activitys.ServiceActivity"
+            android:label="@string/title_activity_service" >
+        </activity>
+
+        <!-- 友盟AppKey， 需要替换成你自己的 -->
+        <meta-data android:name="UMENG_APPKEY"  android:value="5634cb4e67e58ef569005aad"/>
+
+        <!-- 分享内容编辑页 -->
+        <activity
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask"
+            android:name="com.umeng.socialize.view.ShareActivity"
+            android:noHistory="true"
+            android:theme="@style/Theme.UMDialog"
+            android:windowSoftInputMode="stateVisible|adjustResize"/>
+        <!-- 微信回调activity -->
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:name=".wxapi.WXEntryActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <!--  QQ空间和QQ SSO授权的Activity注册  -->
+        <activity android:launchMode="singleTask"
+            android:name="com.tencent.tauth.AuthActivity"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent100424468"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
     </application>
 
 </manifest>

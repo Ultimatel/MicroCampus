@@ -61,7 +61,7 @@
         android:paddingRight="15dp">
 
         <LinearLayout
-            android:id="@+id/qq_login"
+            android:id="@+id/login_qq"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -70,7 +70,7 @@
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/skyblue_logo_qq_checked"/>
+                android:src="@drawable/logo_qq"/>
             <TextView
                 android:layout_marginTop="3dp"
                 android:layout_width="60dp"
@@ -79,7 +79,7 @@
                 android:text="QQ" />
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/weixin_login"
+            android:id="@+id/login_weixin"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -88,7 +88,7 @@
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/skyblue_logo_wechat_checked"/>
+                android:src="@drawable/logo_weixin"/>
             <TextView
                 android:layout_marginTop="3dp"
                 android:layout_width="60dp"
@@ -97,7 +97,7 @@
                 android:text="微信" />
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/weibo_login"
+            android:id="@+id/login_weibo"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -106,7 +106,7 @@
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/skyblue_logo_sinaweibo_checked"/>
+                android:src="@drawable/logo_weibo"/>
             <TextView
                 android:layout_marginTop="3dp"
                 android:layout_width="60dp"

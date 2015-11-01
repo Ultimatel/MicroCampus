@@ -26,7 +26,7 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:scaleType="fitCenter"
-                android:background="#0000"                
+                android:background="#0000"
                 android:clickable="false"
                 android:src="@drawable/tab_me_normal" />
 

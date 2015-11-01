@@ -4,10 +4,5 @@
     android:layout_height="match_parent"
     tools:context="org.smile.microcampus.Fragments.LearningFragment">
 
-    <Button
-        android:id="@+id/shareButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="分享" />
 
 </FrameLayout>

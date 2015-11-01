@@ -1,34 +1,25 @@
 package org.smile.microcampus.Activitys;
-
-import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import org.smile.microcampus.R;
 
-import cn.sharesdk.framework.Platform;
-import cn.sharesdk.framework.PlatformDb;
-import cn.sharesdk.framework.ShareSDK;
-import cn.sharesdk.tencent.qq.QQ;
 
 public class PersanalPage extends AppCompatActivity implements View.OnClickListener{
 
     private Toolbar mToolbar;
     private TextView personalInfo;
     private Button loginOut;
-    Platform qq;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_persanal_page);
-        ShareSDK.initSDK(this);
         intView();
     }
 
@@ -45,19 +36,19 @@ public class PersanalPage extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        personalInfo = (TextView) findViewById(R.id.persaonal_info);
-        qq = ShareSDK.getPlatform(this, QQ.NAME);
-        PlatformDb platDB = qq.getDb();//获取数平台数据DB
-        //通过DB获取各种数据
-        String info =    "授权Token：" +  platDB.getToken() + "\n" +
-                         "ID: " + platDB.getUserId() + "\n" +
-                         "用户名： "+       platDB.getUserName() + "\n" +
-                         "性别："   +   platDB.getUserGender() + "\n" +
-                         "用户头像地址："+      platDB.getUserIcon() + "\n"  ;
-        personalInfo.setText(info);
-
-        loginOut = (Button) findViewById(R.id.login_out);
-        loginOut.setOnClickListener(this);
+//        personalInfo = (TextView) findViewById(R.id.persaonal_info);
+//        qq = ShareSDK.getPlatform(this, QQ.NAME);
+//        PlatformDb platDB = qq.getDb();//获取数平台数据DB
+//        //通过DB获取各种数据
+//        String info =    "授权Token：" +  platDB.getToken() + "\n" +
+//                         "ID: " + platDB.getUserId() + "\n" +
+//                         "用户名： "+       platDB.getUserName() + "\n" +
+//                         "性别："   +   platDB.getUserGender() + "\n" +
+//                         "用户头像地址："+      platDB.getUserIcon() + "\n"  ;
+//        personalInfo.setText(info);
+//
+//        loginOut = (Button) findViewById(R.id.login_out);
+//        loginOut.setOnClickListener(this);
 
     }
 
@@ -65,10 +56,10 @@ public class PersanalPage extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.login_out:
-                 qq.removeAccount(); //移除授权
-                Intent intent = new Intent(PersanalPage.this, MainActivity.class);
-                intent.putExtra("isFromlogin", true);
-                startActivity(intent);
+//                 qq.removeAccount(); //移除授权
+//                Intent intent = new Intent(PersanalPage.this, MainActivity.class);
+//                intent.putExtra("isFromlogin", true);
+//                startActivity(intent);
                 break;
             default:
                 break;

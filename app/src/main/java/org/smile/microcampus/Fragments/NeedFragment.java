@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 
 import org.smile.microcampus.Activitys.AccommodationActivity;
 import org.smile.microcampus.Activitys.BaoCheActivity;
+import org.smile.microcampus.Activitys.SearchActivity;
+import org.smile.microcampus.Activitys.ServiceActivity;
 import org.smile.microcampus.Activitys.SupermarketActivity;
 import org.smile.microcampus.Activitys.TravelActivity;
 import org.smile.microcampus.Adapters.CommonAdapter;
@@ -34,8 +37,8 @@ public class NeedFragment extends Fragment {
 
     View view;
     private GridView gridview;
-    private String[] imageText = { "超市", "包车", "住宿", "旅游", "校联", "拍拍",
-            "聚会", "电影", "服务", };
+    private String[] imageText = { "超市", "包车", "住宿", "旅游", "拍拍", "餐饮",
+            "聚会", "二手", "服务", };
     private int[] images = { R.drawable.app_transfer, R.drawable.app_fund,R.drawable.app_creditcard,
             R.drawable.app_plane, R.drawable.app_movie, R.drawable.app_game,
             R.drawable.app_facepay, R.drawable.app_close,R.drawable.app_phonecharge  };
@@ -52,7 +55,7 @@ public class NeedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_need, container, false);
-
+        setHasOptionsMenu(true);    //在fragment中使用menu菜单
         initView();
 
         return view;
@@ -98,6 +101,10 @@ public class NeedFragment extends Fragment {
                     Intent intent3 = new Intent(getActivity(), TravelActivity.class);
                     startActivity(intent3);
                     break;
+                case 8:  //服务
+                    Intent intent8 = new Intent(getActivity(), ServiceActivity.class);
+                    startActivity(intent8);
+                    break;
                 default:
                     break;
             }
@@ -119,5 +126,23 @@ public class NeedFragment extends Fragment {
             Toast.makeText(getActivity(), "图片" + position , Toast.LENGTH_SHORT).show();
         }
     };
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        getActivity().getMenuInflater().inflate(R.menu.menu_main, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.search) {
+            Intent intent = new Intent(getActivity(), SearchActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
 }
