@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="mainColor">#4dd0c8</color><!--主颜色-->
     <color name="yellow">#E9E8B2</color><!--黄色-->
     <color name="gray">#dddbdb</color><!--灰色-->
     <color name="white">#ffffff</color><!--白色 -->

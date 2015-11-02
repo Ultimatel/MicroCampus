@@ -37,11 +37,11 @@ public class NeedFragment extends Fragment {
 
     View view;
     private GridView gridview;
-    private String[] imageText = { "超市", "包车", "住宿", "旅游", "拍拍", "餐饮",
-            "聚会", "二手", "服务", };
-    private int[] images = { R.drawable.app_transfer, R.drawable.app_fund,R.drawable.app_creditcard,
-            R.drawable.app_plane, R.drawable.app_movie, R.drawable.app_game,
-            R.drawable.app_facepay, R.drawable.app_close,R.drawable.app_phonecharge  };
+    private String[] imageText = { "超市", "包车", "住宿", "旅游", "拍拍",
+            "电影", "二手", "服务", };
+    private int[] images = { R.drawable.supermarker, R.drawable.baoche,R.drawable.accommodation,
+            R.drawable.travel, R.drawable.paipai,
+            R.drawable.movie, R.drawable.sale,R.drawable.service  };
     private List<Map> mDatas;
 
     private ImageCycleView mAdView;
@@ -101,7 +101,7 @@ public class NeedFragment extends Fragment {
                     Intent intent3 = new Intent(getActivity(), TravelActivity.class);
                     startActivity(intent3);
                     break;
-                case 8:  //服务
+                case 7:  //服务
                     Intent intent8 = new Intent(getActivity(), ServiceActivity.class);
                     startActivity(intent8);
                     break;

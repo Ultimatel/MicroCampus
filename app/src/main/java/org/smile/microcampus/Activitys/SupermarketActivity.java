@@ -61,7 +61,7 @@ public class SupermarketActivity extends AppCompatActivity {
         mDatas = new ArrayList<Map>();
         for(int i = 0; i < 20; i++){
             Map<String, Object> map = new HashMap<String, Object>();
-            map.put("supermarket_image",R.drawable.supermarket);
+            map.put("supermarket_image",R.drawable.supermarket_image);
             map.put("supermarket_title", "及时送668");
             map.put("month_sale", " 月售100单");
             map.put("send_price", "起送价￥10");

@@ -23,12 +23,12 @@
 
             <ImageButton
                 android:id="@+id/layout_image_learn"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="27dp"
+                android:layout_height="30dp"
                 android:scaleType="fitCenter"
                 android:background="#0000"
                 android:clickable="false"
-                android:src="@drawable/tab_me_normal" />
+                android:src="@drawable/learn_normal" />
 
             <TextView
                 android:id="@+id/layout_text_learn"
@@ -49,12 +49,12 @@
 
             <ImageButton
                 android:id="@+id/layout_image_need"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="27dp"
+                android:layout_height="30dp"
                 android:scaleType="fitCenter"
                 android:background="#0000"
                 android:clickable="false"
-                android:src="@drawable/tab_me_normal" />
+                android:src="@drawable/need_normal" />
 
             <TextView
                 android:id="@+id/layout_text_need"
@@ -75,12 +75,12 @@
 
             <ImageButton
                 android:id="@+id/layout_image_activity"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:scaleType="fitCenter"
                 android:background="#0000"
                 android:clickable="false"
-                android:src="@drawable/tab_me_normal" />
+                android:src="@drawable/activity_normal" />
 
             <TextView
                 android:id="@+id/layout_text_activity"
@@ -102,12 +102,12 @@
 
             <ImageButton
                 android:id="@+id/layout_image_share"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:scaleType="fitCenter"
                 android:background="#0000"
                 android:clickable="false"
-                android:src="@drawable/tab_me_normal" />
+                android:src="@drawable/share_normal" />
 
             <TextView
                 android:id="@+id/layout_text_share"
@@ -118,7 +118,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout_btn_my"
+            android:id="@+id/layout_btn_me"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -128,16 +128,16 @@
             <!--beforeDescendants：viewgroup会优先其子类控件而获取到焦点 -->
 
             <ImageButton
-                android:id="@+id/layout_image_my"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:id="@+id/layout_image_me"
+                android:layout_width="28dp"
+                android:layout_height="30dp"
                 android:scaleType="fitCenter"
                 android:background="#0000"
                 android:clickable="false"
-                android:src="@drawable/tab_me_normal" />
+                android:src="@drawable/me_normal" />
 
             <TextView
-                android:id="@+id/layout_text_my"
+                android:id="@+id/layout_text_me"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12dp"

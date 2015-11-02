@@ -39,21 +39,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout layoutBtnNeed;
     private LinearLayout layoutBtnActivity;
     private LinearLayout layoutBtnShare;
-    private LinearLayout layoutBtnMy;
+    private LinearLayout layoutBtnMe;
 
     /**底部五个按钮图片*/
     private ImageView layoutImageLearn;
     private ImageView layoutImageNeed;
     private ImageView layoutImageActivity;
     private ImageView layoutImageShare;
-    private ImageView layoutImageMy;
+    private ImageView layoutImageMe;
 
     /**底部五个按钮文字*/
     private TextView layoutTextLearn;
     private TextView layoutTextNeed;
     private TextView layoutTextActivity;
     private TextView layoutTextShare;
-    private TextView layoutTextMy;
+    private TextView layoutTextMe;
 
     private boolean isFromlogin; //是否是从登陆界面跳转过来
 
@@ -85,25 +85,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         layoutBtnNeed = (LinearLayout) findViewById(R.id.layout_btn_need);
         layoutBtnActivity = (LinearLayout) findViewById(R.id.layout_btn_activity);
         layoutBtnShare = (LinearLayout) findViewById(R.id.layout_btn_share);
-        layoutBtnMy = (LinearLayout) findViewById(R.id.layout_btn_my);
+        layoutBtnMe = (LinearLayout) findViewById(R.id.layout_btn_me);
 
         layoutBtnLearn.setOnClickListener(this);
         layoutBtnNeed.setOnClickListener(this);
         layoutBtnActivity.setOnClickListener(this);
         layoutBtnShare.setOnClickListener(this);
-        layoutBtnMy.setOnClickListener(this);
+        layoutBtnMe.setOnClickListener(this);
 
         layoutImageLearn = (ImageView) findViewById(R.id.layout_image_learn);
         layoutImageNeed = (ImageView) findViewById(R.id.layout_image_need);
         layoutImageActivity = (ImageView) findViewById(R.id.layout_image_activity);
         layoutImageShare = (ImageView) findViewById(R.id.layout_image_share);
-        layoutImageMy = (ImageView) findViewById(R.id.layout_image_my);
+        layoutImageMe = (ImageView) findViewById(R.id.layout_image_me);
 
         layoutTextLearn = (TextView) findViewById(R.id.layout_text_learn);
         layoutTextNeed = (TextView) findViewById(R.id.layout_text_need);
         layoutTextActivity= (TextView) findViewById(R.id.layout_text_activity);
         layoutTextShare = (TextView) findViewById(R.id.layout_text_share);
-        layoutTextMy = (TextView) findViewById(R.id.layout_text_my);
+        layoutTextMe = (TextView) findViewById(R.id.layout_text_me);
 
         resetLayoutButton();
         setLayoutButton(3);
@@ -128,45 +128,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     /**初始化底部按钮*/
     public void resetLayoutButton(){
-        layoutImageLearn.setImageResource(R.drawable.tab_me_normal);
-        layoutImageNeed.setImageResource(R.drawable.tab_me_normal);
-        layoutImageActivity.setImageResource(R.drawable.tab_me_normal);
-        layoutImageShare.setImageResource(R.drawable.tab_me_normal);
-        layoutImageMy.setImageResource(R.drawable.tab_me_normal);
+        layoutImageLearn.setImageResource(R.drawable.learn_normal);
+        layoutImageNeed.setImageResource(R.drawable.need_normal);
+        layoutImageActivity.setImageResource(R.drawable.activity_normal);
+        layoutImageShare.setImageResource(R.drawable.share_normal);
+        layoutImageMe.setImageResource(R.drawable.me_normal);
 
         layoutTextLearn.setTextColor(Color.GRAY);
         layoutTextNeed.setTextColor(Color.GRAY);
         layoutTextActivity.setTextColor(Color.GRAY);
         layoutTextShare.setTextColor(Color.GRAY);
-        layoutTextMy.setTextColor(Color.GRAY);
+        layoutTextMe.setTextColor(Color.GRAY);
     }
 
     /**设置底部按钮*/
     public void setLayoutButton(int index){
         switch (index){
             case 1:
-                layoutImageLearn.setImageResource(R.drawable.tab_me_press);
-                layoutTextLearn.setTextColor(getResources().getColor(R.color.orange));
+                layoutImageLearn.setImageResource(R.drawable.learn_press);
+                layoutTextLearn.setTextColor(getResources().getColor(R.color.mainColor));
                 break;
             case 2:
-                layoutImageNeed.setImageResource(R.drawable.tab_me_press);
-                layoutTextNeed.setTextColor(getResources().getColor(R.color.orange));
+                layoutImageNeed.setImageResource(R.drawable.need_press);
+                layoutTextNeed.setTextColor(getResources().getColor(R.color.mainColor));
                 break;
             case 3:
-                layoutImageActivity.setImageResource(R.drawable.tab_me_press);
-                layoutTextActivity.setTextColor(getResources().getColor(R.color.orange));
+                layoutImageActivity.setImageResource(R.drawable.activity_press);
+                layoutTextActivity.setTextColor(getResources().getColor(R.color.mainColor));
                 break;
             case 4:
-                layoutImageShare.setImageResource(R.drawable.tab_me_press);
-                layoutTextShare.setTextColor(getResources().getColor(R.color.orange));
+                layoutImageShare.setImageResource(R.drawable.share_press);
+                layoutTextShare.setTextColor(getResources().getColor(R.color.mainColor));
                 break;
             case 5:
-                layoutImageMy.setImageResource(R.drawable.tab_me_press);
-                layoutTextMy.setTextColor(getResources().getColor(R.color.orange));
+                layoutImageMe.setImageResource(R.drawable.me_press);
+                layoutTextMe.setTextColor(getResources().getColor(R.color.mainColor));
                 break;
             default:
-                layoutImageActivity.setImageResource(R.drawable.tab_me_press);
-                layoutTextActivity.setTextColor(getResources().getColor(R.color.orange));
+                layoutImageActivity.setImageResource(R.drawable.activity_press);
+                layoutTextActivity.setTextColor(getResources().getColor(R.color.mainColor));
                 break;
         }
 
@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 setTabSelection(4);
                 setToolBarTitle(4);
                 break;
-            case R.id.layout_btn_my:
+            case R.id.layout_btn_me:
                 setLayoutButton(5);
                 setTabSelection(5);
                 setToolBarTitle(5);
