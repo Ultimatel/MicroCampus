@@ -61,7 +61,7 @@ public class LearningFragment extends Fragment implements  View.OnClickListener,
 
     //初始化ImageView的视图资源
     public void initImage(){
-        imageView1.setImageResource(R.drawable.p2);
+        imageView1.setImageResource(R.drawable.p5);
         imageView2.setImageResource(R.drawable.p3);
         imageView3.setImageResource(R.drawable.p7);
     }

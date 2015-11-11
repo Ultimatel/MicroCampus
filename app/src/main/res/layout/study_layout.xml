@@ -8,14 +8,14 @@
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_weight="1"
-        android:background="@color/orange"
+        android:background="@color/mainColor"
         android:orientation="horizontal">
 
         <org.smile.microcampus.Utils.CircleImageView
             android:id="@+id/university_guide"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/p2"
+            android:src="@drawable/p11"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="4dp" />
 

@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.smile.microcampus.Activitys.Post_ActivityMessages;
 import org.smile.microcampus.R;
@@ -148,9 +149,13 @@ public class ActivityFragment extends Fragment implements  View.OnClickListener,
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.post_menu:// 发表活动信息
+            case R.id.activity_postmessages:// 发表活动信息
                 Intent intent1=new Intent(getActivity(), Post_ActivityMessages.class);
                 startActivity(intent1);break;
+            case R.id.parttimejob_postmessages:
+                Toast.makeText(getActivity(),"填写兼职发布信息内容",Toast.LENGTH_SHORT).show();break;
+            case R.id.voluntee_postmessages:
+                Toast.makeText(getActivity(),"填写志愿者发布信息内容",Toast.LENGTH_SHORT).show();break;
         }
         return true;
     }

@@ -34,7 +34,7 @@
         </activity>
         <activity
             android:name=".Activitys.BaoMingActivity"
-            android:label="返回"
+            android:label="@string/comeback"
             android:parentActivityName=".Activitys.NewsActivity"
             android:theme="@style/Theme.AppCompat.Light" >
         </activity>
@@ -107,6 +107,12 @@
         <activity android:name="com.tencent.connect.common.AssistActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+        <activity
+            android:name=".Activitys.Activity_ShowPictureFiles"
+            android:label="@string/select_picture">
+        </activity>
+        <activity android:name=".Activitys.ShowImageActivity">
         </activity>
     </application>
 

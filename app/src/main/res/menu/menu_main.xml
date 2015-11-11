@@ -4,7 +4,6 @@
     tools:context=".MainActivity">
     <item
         android:id="@+id/search"
-        android:icon="@drawable/search"
         app:showAsAction="always"
         android:title="搜索"/>
 </menu>
