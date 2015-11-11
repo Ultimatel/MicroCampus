@@ -6,9 +6,11 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -24,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activitys.AuthPage"
+            android:name=".Activitys.LoginActivity"
             android:label="@string/title_activity_auth_page" >
         </activity>
         <activity
@@ -75,38 +77,52 @@
         </activity>
 
         <!-- 友盟AppKey， 需要替换成你自己的 -->
-        <meta-data android:name="UMENG_APPKEY"  android:value="5634cb4e67e58ef569005aad"/>
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5634cb4e67e58ef569005aad" />
 
         <!-- 分享内容编辑页 -->
         <activity
+            android:name="com.umeng.socialize.view.ShareActivity"
             android:configChanges="orientation|keyboard"
             android:launchMode="singleTask"
-            android:name="com.umeng.socialize.view.ShareActivity"
             android:noHistory="true"
             android:theme="@style/Theme.UMDialog"
-            android:windowSoftInputMode="stateVisible|adjustResize"/>
+            android:windowSoftInputMode="stateVisible|adjustResize" />
         <!-- 微信回调activity -->
         <activity
+            android:name=".wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
-            android:name=".wxapi.WXEntryActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
-        <!--  QQ空间和QQ SSO授权的Activity注册  -->
-        <activity android:launchMode="singleTask"
+        <!-- QQ空间和QQ SSO授权的Activity注册 -->
+        <activity
             android:name="com.tencent.tauth.AuthActivity"
-            android:noHistory="true">
+            android:launchMode="singleTask"
+            android:noHistory="true" >
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="tencent100424468"/>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent100424468" />
             </intent-filter>
         </activity>
-        <activity android:name="com.tencent.connect.common.AssistActivity"
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity
+            android:name=".Activitys.RegisterActivity"
+            android:label="@string/title_activity_register" >
+        </activity>
+        <activity
+            android:name=".Activitys.BlankActivity"
+            android:label="@string/title_activity_blank" >
         </activity>
         <activity
             android:name=".Activitys.Activity_ShowPictureFiles"

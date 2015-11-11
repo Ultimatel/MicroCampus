@@ -28,7 +28,7 @@
                 android:scaleType="fitCenter"
                 android:background="#0000"
                 android:clickable="false"
-                android:src="@drawable/learn_normal" />
+                android:src="@drawable/bottom_bar_learn_normal" />
 
             <TextView
                 android:id="@+id/layout_text_learn"
@@ -54,7 +54,7 @@
                 android:scaleType="fitCenter"
                 android:background="#0000"
                 android:clickable="false"
-                android:src="@drawable/need_normal" />
+                android:src="@drawable/bottom_bar_need_normal" />
 
             <TextView
                 android:id="@+id/layout_text_need"
@@ -80,7 +80,7 @@
                 android:scaleType="fitCenter"
                 android:background="#0000"
                 android:clickable="false"
-                android:src="@drawable/activity_normal" />
+                android:src="@drawable/bottom_bar_activity_normal" />
 
             <TextView
                 android:id="@+id/layout_text_activity"
@@ -107,7 +107,7 @@
                 android:scaleType="fitCenter"
                 android:background="#0000"
                 android:clickable="false"
-                android:src="@drawable/share_normal" />
+                android:src="@drawable/bottom_bar_share_normal" />
 
             <TextView
                 android:id="@+id/layout_text_share"
@@ -134,7 +134,7 @@
                 android:scaleType="fitCenter"
                 android:background="#0000"
                 android:clickable="false"
-                android:src="@drawable/me_normal" />
+                android:src="@drawable/bottom_bar_me_normal" />
 
             <TextView
                 android:id="@+id/layout_text_me"
