@@ -70,7 +70,7 @@ public class Post_ActivityMessages extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater=new MenuInflater(this);
-        inflater.inflate(R.menu.menu_main,menu);
+        inflater.inflate(R.menu.menu_search,menu);
         return super.onCreateOptionsMenu(menu);
 
     }

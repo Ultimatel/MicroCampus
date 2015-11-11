@@ -39,9 +39,9 @@ public class NeedFragment extends Fragment {
     private GridView gridview;
     private String[] imageText = { "超市", "包车", "住宿", "旅游", "拍拍",
             "电影", "二手", "服务", };
-    private int[] images = { R.drawable.supermarker, R.drawable.baoche,R.drawable.accommodation,
-            R.drawable.travel, R.drawable.paipai,
-            R.drawable.movie, R.drawable.sale,R.drawable.service  };
+    private int[] images = { R.drawable.grid_supermarker, R.drawable.grid_baoche,R.drawable.grid_accommodation,
+            R.drawable.grid_travel, R.drawable.grid_paipai,
+            R.drawable.grid_movie, R.drawable.grid_sale,R.drawable.grid_service};
     private List<Map> mDatas;
 
     private ImageCycleView mAdView;
@@ -129,7 +129,7 @@ public class NeedFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        getActivity().getMenuInflater().inflate(R.menu.menu_main, menu);
+        getActivity().getMenuInflater().inflate(R.menu.menu_search, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 

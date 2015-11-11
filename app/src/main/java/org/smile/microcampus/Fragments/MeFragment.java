@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.smile.microcampus.Activitys.AuthPage;
+import org.smile.microcampus.Activitys.LoginActivity;
 import org.smile.microcampus.R;
 import org.smile.microcampus.Utils.CircleImageView;
 
@@ -43,7 +43,7 @@ public class MeFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.login:
-                Intent intent = new Intent(getActivity(), AuthPage.class);
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);
                 break;
             default:

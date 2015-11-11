@@ -1,6 +1,5 @@
 package org.smile.microcampus.Activitys;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,9 +7,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -22,6 +18,8 @@ import org.smile.microcampus.Fragments.MeFragment;
 import org.smile.microcampus.Fragments.NeedFragment;
 import org.smile.microcampus.Fragments.ShareFragment;
 import org.smile.microcampus.R;
+
+import cn.bmob.v3.Bmob;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -57,20 +55,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private boolean isFromlogin; //是否是从登陆界面跳转过来
 
+    public static String AppID = "c73f794ee1f2c0d69b6025fa2c79a886";  //Bmob ID
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fragmentManager = getSupportFragmentManager();
+        Bmob.initialize(this, AppID);  //初始化 Bmob SDK
         initView();
-        isFromlogin =  getIntent().getBooleanExtra("isFromlogin", false);
-        if(isFromlogin){   //从登陆界面返回的话
-            resetLayoutButton();
-            setLayoutButton(5);
-            setTabSelection(5);
-            setToolBarTitle(5);
-        }
+
+//        isFromlogin =  getIntent().getBooleanExtra("isFromlogin", false);
+//        if(isFromlogin){   //从登陆界面返回的话
+//            resetLayoutButton();
+//            setLayoutButton(5);
+//            setTabSelection(5);
+//            setToolBarTitle(5);
+//        }
 
     }
 
@@ -128,11 +129,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     /**初始化底部按钮*/
     public void resetLayoutButton(){
-        layoutImageLearn.setImageResource(R.drawable.learn_normal);
-        layoutImageNeed.setImageResource(R.drawable.need_normal);
-        layoutImageActivity.setImageResource(R.drawable.activity_normal);
-        layoutImageShare.setImageResource(R.drawable.share_normal);
-        layoutImageMe.setImageResource(R.drawable.me_normal);
+        layoutImageLearn.setImageResource(R.drawable.bottom_bar_learn_normal);
+        layoutImageNeed.setImageResource(R.drawable.bottom_bar_need_normal);
+        layoutImageActivity.setImageResource(R.drawable.bottom_bar_activity_normal);
+        layoutImageShare.setImageResource(R.drawable.bottom_bar_share_normal);
+        layoutImageMe.setImageResource(R.drawable.bottom_bar_me_normal);
 
         layoutTextLearn.setTextColor(Color.GRAY);
         layoutTextNeed.setTextColor(Color.GRAY);
@@ -145,27 +146,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void setLayoutButton(int index){
         switch (index){
             case 1:
-                layoutImageLearn.setImageResource(R.drawable.learn_press);
+                layoutImageLearn.setImageResource(R.drawable.bottom_bar_learn_press);
                 layoutTextLearn.setTextColor(getResources().getColor(R.color.mainColor));
                 break;
             case 2:
-                layoutImageNeed.setImageResource(R.drawable.need_press);
+                layoutImageNeed.setImageResource(R.drawable.bottom_bar_need_press);
                 layoutTextNeed.setTextColor(getResources().getColor(R.color.mainColor));
                 break;
             case 3:
-                layoutImageActivity.setImageResource(R.drawable.activity_press);
+                layoutImageActivity.setImageResource(R.drawable.bottom_bar_activity_press);
                 layoutTextActivity.setTextColor(getResources().getColor(R.color.mainColor));
                 break;
             case 4:
-                layoutImageShare.setImageResource(R.drawable.share_press);
+                layoutImageShare.setImageResource(R.drawable.bottom_bar_share_press);
                 layoutTextShare.setTextColor(getResources().getColor(R.color.mainColor));
                 break;
             case 5:
-                layoutImageMe.setImageResource(R.drawable.me_press);
+                layoutImageMe.setImageResource(R.drawable.bottom_bar_me_press);
                 layoutTextMe.setTextColor(getResources().getColor(R.color.mainColor));
                 break;
             default:
-                layoutImageActivity.setImageResource(R.drawable.activity_press);
+                layoutImageActivity.setImageResource(R.drawable.bottom_bar_activity_press);
                 layoutTextActivity.setTextColor(getResources().getColor(R.color.mainColor));
                 break;
         }

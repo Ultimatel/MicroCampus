@@ -18,11 +18,10 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <org.smile.microcampus.Utils.CircleImageView
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/user_image"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/hugh"
+                    android:src="@drawable/user"
                     android:layout_marginTop="3dp" />
                 <TextView
                     android:id="@+id/user_name"

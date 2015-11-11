@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import org.smile.microcampus.R;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -31,10 +33,10 @@ import com.umeng.socialize.controller.listener.SocializeListeners.SocializeClien
 import com.umeng.socialize.controller.listener.SocializeListeners.UMDataListener;
 import com.umeng.socialize.weixin.controller.UMWXHandler;
 
-public class AuthPage extends AppCompatActivity implements View.OnClickListener{
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Toolbar mToolbar;
-    private EditText account;
+    private EditText username;
     private EditText password;
     // 整个平台的Controller, 负责管理整个SDK的配置、操作等处理
     private UMSocialService mController = UMServiceFactory.getUMSocialService("com.umeng.login");
@@ -42,7 +44,7 @@ public class AuthPage extends AppCompatActivity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_auth_page);
+        setContentView(R.layout.activity_login);
         intView();
         addToSocial();
     }
@@ -60,7 +62,7 @@ public class AuthPage extends AppCompatActivity implements View.OnClickListener{
             }
         });
 
-        account = (EditText) findViewById(R.id.account);
+        username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
 
         findViewById(R.id.login).setOnClickListener(this);
@@ -68,7 +70,7 @@ public class AuthPage extends AppCompatActivity implements View.OnClickListener{
         findViewById(R.id.login_weixin).setOnClickListener(this);
         findViewById(R.id.login_weibo).setOnClickListener(this);
 
-//        Intent intent = new Intent(AuthPage.this, MainActivity.class);
+//        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 //        intent.putExtra("isFromlogin", true);
 //        startActivity(intent);
     }
@@ -85,7 +87,11 @@ public class AuthPage extends AppCompatActivity implements View.OnClickListener{
         // 添加微信平台
         UMWXHandler wxHandler = new UMWXHandler(this, "wx967daebe835fbeac",
                 "5fa9e68ca3970e87a1f83e563c8dcbce");
+//        UMWXHandler wxHandler = new UMWXHandler(this, "wxd0d84bbf23b4a0e4",
+//                "a354f72aa1b4c2b8eaad137ac81434cd");
         wxHandler.addToSocialSDK();
+        // 设置每次微信登录都需确认
+//        wxHandler.setRefreshTokenAvailable(false);
     }
 
     @Override
@@ -119,29 +125,29 @@ public class AuthPage extends AppCompatActivity implements View.OnClickListener{
 
             @Override
             public void onStart(SHARE_MEDIA platform) {
-                Toast.makeText(AuthPage.this, "start", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "start", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onError(SocializeException e, SHARE_MEDIA platform) {
-                Toast.makeText(AuthPage.this, "error", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "error", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onComplete(Bundle value, SHARE_MEDIA platform) {
-                Toast.makeText(AuthPage.this, "onComplete", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "onComplete", Toast.LENGTH_SHORT).show();
                 String uid = value.getString("uid");
                 if (value != null && !TextUtils.isEmpty(uid)) {
-                    Toast.makeText(AuthPage.this, "授权成功：" + uid, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "授权成功：" + uid, Toast.LENGTH_SHORT).show();
                     getUserInfo(platform);
                 } else {
-                    Toast.makeText(AuthPage.this, "授权失败", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "授权失败", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onCancel(SHARE_MEDIA platform) {
-                Toast.makeText(AuthPage.this, "cancel", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "cancel", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -176,9 +182,9 @@ public class AuthPage extends AppCompatActivity implements View.OnClickListener{
                         sb.append(key + "=" + info.get(key).toString() + "\r\n");
                     }
                     Log.d("user:", sb.toString());
-                    Toast.makeText(AuthPage.this, sb, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, sb, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(AuthPage.this, "获取用户信息失败", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "获取用户信息失败", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -201,7 +207,7 @@ public class AuthPage extends AppCompatActivity implements View.OnClickListener{
                 if (status != StatusCode.ST_CODE_SUCCESSED) {
                     showText = "解除" + platform.toString() + "平台授权失败[" + status + "]";
                 }
-                Toast.makeText(AuthPage.this, showText, Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, showText, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -215,6 +221,23 @@ public class AuthPage extends AppCompatActivity implements View.OnClickListener{
         if (ssoHandler != null) {
             ssoHandler.authorizeCallBack(requestCode, resultCode, data);
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_login, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.register) {
+            Intent intent = new Intent(this, RegisterActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }
