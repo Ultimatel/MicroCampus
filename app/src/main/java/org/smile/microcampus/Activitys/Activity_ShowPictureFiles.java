@@ -160,8 +160,8 @@ public class Activity_ShowPictureFiles extends AppCompatActivity {
         if(mGruopMap.size() == 0){
             return null;
         }
-        List<ImageBean> list = new ArrayList<ImageBean>();
-
+        List<ImageBean> list = new ArrayList<>();
+        //对获取的文件夹进行迭代
         Iterator<Map.Entry<String, List<String>>> it = mGruopMap.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<String, List<String>> entry = it.next();

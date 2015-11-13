@@ -97,8 +97,6 @@ public class GroupAdapter extends BaseAdapter{
 		}else{
 			viewHolder.mImageView.setImageResource(R.drawable.friends_sends_pictures_no);
 		}
-		
-		
 		return convertView;
 	}
 	

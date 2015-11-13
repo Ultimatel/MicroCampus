@@ -11,6 +11,7 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Point;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.GridView;
 
 import org.smile.microcampus.R;
+import org.smile.microcampus.Utils.ImageBean;
 import org.smile.microcampus.Utils.NativeImageLoader;
 import org.smile.microcampus.Utils.PostImageView;
 
@@ -29,9 +31,9 @@ import org.smile.microcampus.Utils.PostImageView;
 public class ChildAdapter extends BaseAdapter {
 	private Point mPoint = new Point(0, 0);
 
-	private HashMap<Integer, Boolean> mSelectMap = new HashMap<Integer, Boolean>();
+	private static HashMap<Integer, Boolean> mSelectMap = new HashMap<Integer, Boolean>();
 	private GridView mGridView;
-	private List<String> list;
+	private static List<String> list;
 	protected LayoutInflater mInflater;
 
 	public ChildAdapter(Context context, List<String> list, GridView mGridView) {
@@ -66,8 +68,6 @@ public class ChildAdapter extends BaseAdapter {
 			viewHolder = new ViewHolder();
 			viewHolder.mImageView = (PostImageView) convertView.findViewById(R.id.child_image);
 			viewHolder.mCheckBox = (CheckBox) convertView.findViewById(R.id.child_checkbox);
-			
-
 			viewHolder.mImageView.setOnMeasureListener(new PostImageView.OnMeasureListener() {
 				
 				@Override
@@ -118,7 +118,7 @@ public class ChildAdapter extends BaseAdapter {
 	}
 
 	/**
-	 * ��CheckBox�ӵ�����������ÿ�Դ��nineoldandroids���ö���
+	 * ??CheckBox??????????????????nineoldandroids???????
 	 * @param view
 	 */
 	private void addAnimation(View view){
@@ -129,22 +129,22 @@ public class ChildAdapter extends BaseAdapter {
 				set.setDuration(150);
 		set.start();
 	}
-	
+
 
 	/**
-	 * ��ȡѡ�е�Item��position
+	 * ?????е?Item??position
 	 * @return
 	 */
-	public List<Integer> getSelectItems(){
-		List<Integer> list = new ArrayList<Integer>();
+	public static List<Integer> getSelectItems(){
+		List<Integer> list1 = new ArrayList<Integer>();
 		for(Iterator<Map.Entry<Integer, Boolean>> it = mSelectMap.entrySet().iterator(); it.hasNext();){
 			Map.Entry<Integer, Boolean> entry = it.next();
 			if(entry.getValue()){
-				list.add(entry.getKey());
+				list1.add(entry.getKey());
 			}
 		}
-		
-		return list;
+
+		return list1;
 	}
 
 
@@ -153,6 +153,15 @@ public class ChildAdapter extends BaseAdapter {
 		public CheckBox mCheckBox;
 	}
 
+	public static List<String> sendCheckPhotoes(){
+		List <String>list2=new ArrayList();
+		for(int i=0;i<ChildAdapter.getSelectItems().size();i++){
+			int position=ChildAdapter.getSelectItems().get(i);
+			String path1=list.get(position);
+			list2.add(path1);
 
+		}
+		return  list2;
+	}
 
 }

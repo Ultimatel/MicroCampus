@@ -2,21 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-    <LinearLayout
+   >
+
+    <org.smile.microcampus.Utils.PostImageView
+        android:id="@+id/gird_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="5dp">
-        <ImageView
-            android:id="@+id/gird_image"
-            android:layout_width="95dp"
-            android:layout_height="75dp"
-            android:src="@drawable/p3"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="3dp"
-            />
-
-    </LinearLayout>
-
+        android:layout_height="60dp"
+        android:background="@drawable/friends_sends_pictures_no"
+        android:scaleType="fitXY" />
 </LinearLayout>

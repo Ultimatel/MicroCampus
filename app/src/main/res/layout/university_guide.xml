@@ -23,10 +23,10 @@
             /> -->
         <org.smile.microcampus.Utils.CircleImageView
             android:id="@+id/guide_user_image"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/p10"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp" />
         <TextView
             android:id="@+id/guide_tv1"
@@ -34,19 +34,19 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/guide_user_image"
             android:text="djaiodf"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="5dp"
             android:layout_marginTop="10dp"
             android:textSize="18sp"
             android:textColor="@color/black"
             android:singleLine="true"/>
-        <TextView
+        ''<TextView
             android:id="@+id/guide_tv2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/guide_user_image"
             android:text="dsiaga"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="55dp"
             android:textSize="15sp"
             android:layout_marginRight="3dp"
             android:layout_marginTop="3dp"/>
@@ -56,7 +56,7 @@
             android:layout_height="23dp"
             android:layout_below="@+id/guide_tv2"
             android:focusable="false"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="55dp"
             android:layout_marginTop="5dp"
             android:text="全文"
             android:textSize="15sp"

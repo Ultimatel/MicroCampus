@@ -8,7 +8,7 @@
     <org.smile.microcampus.Utils.PostImageView
         android:id="@+id/child_image"
         android:layout_width="match_parent"
-        android:layout_height="100dip"
+        android:layout_height="110dip"
         android:background="@drawable/friends_sends_pictures_no"
         android:scaleType="fitXY" />
 

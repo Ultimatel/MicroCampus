@@ -94,9 +94,9 @@ public class ShowImageActivity extends AppCompatActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()){
 			case R.id.menu_success:
-
 				Intent mIntent=new Intent(getApplicationContext(),Post_ActivityMessages.class);
-				//mIntent.putStringArrayListExtra("data", (ArrayList<String>) selectList);
+				selectList=ChildAdapter.sendCheckPhotoes();
+			    mIntent.putStringArrayListExtra("checkphoto", (ArrayList<String>) selectList);
 				startActivity(mIntent);
 				finish();
 		}

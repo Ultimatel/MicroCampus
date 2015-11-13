@@ -124,23 +124,18 @@ public class NativeImageLoader {
 	/**
 	 * ���View(��Ҫ��ImageView)�Ŀ�͸�������Bitmap���ű���Ĭ�ϲ�����
 	 * @param options
-	 * @param width
-	 * @param height
 	 */
 	private int computeScale(BitmapFactory.Options options, int viewWidth, int viewHeight){
 		int inSampleSize = 1;
-		if(viewWidth == 0 || viewWidth == 0){
+		if(viewWidth == 0 || viewHeight == 0){
 			return inSampleSize;
 		}
 		int bitmapWidth = options.outWidth;
 		int bitmapHeight = options.outHeight;
-		
-		//����Bitmap�Ŀ�Ȼ�߶ȴ��������趨ͼƬ��View�Ŀ�ߣ���������ű���
+
 		if(bitmapWidth > viewWidth || bitmapHeight > viewWidth){
 			int widthScale = Math.round((float) bitmapWidth / (float) viewWidth);
 			int heightScale = Math.round((float) bitmapHeight / (float) viewWidth);
-			
-			//Ϊ�˱�֤ͼƬ�����ű��Σ�����ȡ��߱�����С���Ǹ�
 			inSampleSize = widthScale < heightScale ? widthScale : heightScale;
 		}
 		return inSampleSize;
