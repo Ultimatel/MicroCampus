@@ -22,7 +22,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@color/gray"
-        android:numColumns="5"
+        android:numColumns="4"
         android:horizontalSpacing="3dp"
         android:verticalSpacing="3dp"
         />

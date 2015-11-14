@@ -33,7 +33,7 @@
      android:layout_toRightOf="@+id/school_image"
      android:layout_below="@+id/school_tv1"
      android:text="用户在活动板块上发表信息的内容：以两行显示，多了以····结束"
-     android:textSize="14sp"
+     android:textSize="16sp"
      android:paddingLeft="18dp"
      android:layout_marginTop="10dp"
      android:lines="2"

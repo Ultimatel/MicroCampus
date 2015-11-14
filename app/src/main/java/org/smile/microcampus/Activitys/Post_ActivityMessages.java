@@ -95,7 +95,7 @@ public class Post_ActivityMessages extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = new MenuInflater(this);
-        inflater.inflate(R.menu.menu_search, menu);
+        inflater.inflate(R.menu.menu_send, menu);
         return super.onCreateOptionsMenu(menu);
 
     }
@@ -103,8 +103,10 @@ public class Post_ActivityMessages extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.activity_postmessages://
+            case R.id.mend_send:
                 Toast.makeText(getApplicationContext(), "提交数据到数据库", Toast.LENGTH_SHORT).show();
+                //把girdview中的图片（也就是plist集合中的图片）提交到数据库
+                finish();
                 break;
         }
         return true;
@@ -120,7 +122,7 @@ public class Post_ActivityMessages extends AppCompatActivity {
             public void run() {
               //  Map<String, Object> map = new HashMap<>();
                 if (plist!=null) {
-                    Bitmap bitmap=BitmapFactory.decodeResource(getResources(),R.drawable.p2);
+                    Bitmap bitmap=BitmapFactory.decodeResource(getResources(),R.drawable.picture_plus);
                     Map<String,Object>map1=new HashMap<String, Object>();
                     map1.put("image",bitmap);
                     pDatas.add(map1);

@@ -20,7 +20,7 @@ public class NativeImageLoader {
 	
 	private NativeImageLoader(){
 		final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
-		final int cacheSize = maxMemory / 4;
+		final int cacheSize = maxMemory / 8;
 		mMemoryCache = new LruCache<String, Bitmap>(cacheSize) {
 
 			@Override
@@ -60,13 +60,13 @@ public class NativeImageLoader {
 				
 				@Override
 				public void run() {
-
+                   //先获取图片的缩略图
 					Bitmap mBitmap = decodeThumbBitmapForFile(path, mPoint == null ? 0: mPoint.x, mPoint == null ? 0: mPoint.y);
 					Message msg = mHander.obtainMessage();
 					msg.obj = mBitmap;
 					mHander.sendMessage(msg);
-					
 
+                  //将图片加入到内存缓存
 					addBitmapToMemoryCache(path, mBitmap);
 				}
 			});
@@ -75,13 +75,10 @@ public class NativeImageLoader {
 		
 	}
 
-	
-	
+
+
 	/**
-	 * ���ڴ滺�������Bitmap
-	 * 
-	 * @param key
-	 * @param bitmap
+	 * 往内存缓存中添加Bitmap
 	 */
 	private void addBitmapToMemoryCache(String key, Bitmap bitmap) {
 		if (getBitmapFromMemCache(key) == null && bitmap != null) {
@@ -90,17 +87,16 @@ public class NativeImageLoader {
 	}
 
 	/**
-	 * ���key����ȡ�ڴ��е�ͼƬ
+	 * 根据key来获取内存中的图片
 	 * @param key
 	 * @return
 	 */
 	private Bitmap getBitmapFromMemCache(String key) {
 		return mMemoryCache.get(key);
 	}
-	
-	
+
 	/**
-	 * ���View(��Ҫ��ImageView)�Ŀ�͸�����ȡͼƬ������ͼ
+	 * 根据View(主要是ImageView)的宽和高来获取图片的缩略图
 	 * @param path
 	 * @param viewWidth
 	 * @param viewHeight
@@ -108,22 +104,21 @@ public class NativeImageLoader {
 	 */
 	private Bitmap decodeThumbBitmapForFile(String path, int viewWidth, int viewHeight){
 		BitmapFactory.Options options = new BitmapFactory.Options();
-		//����Ϊtrue,��ʾ����Bitmap���󣬸ö���ռ�ڴ�
+		//设置为true,表示解析Bitmap对象，该对象不占内存
 		options.inJustDecodeBounds = true;
 		BitmapFactory.decodeFile(path, options);
-		//�������ű���
+		//设置缩放比例
 		options.inSampleSize = computeScale(options, viewWidth, viewHeight);
-		
-		//����Ϊfalse,����Bitmap������뵽�ڴ���
+
+		//设置为false,解析Bitmap对象加入到内存中
 		options.inJustDecodeBounds = false;
 		
 		return BitmapFactory.decodeFile(path, options);
 	}
-	
-	
+
+
 	/**
-	 * ���View(��Ҫ��ImageView)�Ŀ�͸�������Bitmap���ű���Ĭ�ϲ�����
-	 * @param options
+	 * 根据View(主要是ImageView)的宽和高来计算Bitmap缩放比例。默认不缩放
 	 */
 	private int computeScale(BitmapFactory.Options options, int viewWidth, int viewHeight){
 		int inSampleSize = 1;
@@ -132,28 +127,22 @@ public class NativeImageLoader {
 		}
 		int bitmapWidth = options.outWidth;
 		int bitmapHeight = options.outHeight;
-
+//假如Bitmap的宽度或高度大于我们设定图片的View的宽高，则计算缩放比例
 		if(bitmapWidth > viewWidth || bitmapHeight > viewWidth){
 			int widthScale = Math.round((float) bitmapWidth / (float) viewWidth);
 			int heightScale = Math.round((float) bitmapHeight / (float) viewWidth);
+			//为了保证图片不缩放变形，我们取宽高比例最小的那个
 			inSampleSize = widthScale < heightScale ? widthScale : heightScale;
 		}
 		return inSampleSize;
 	}
-	
-	
 	/**
-	 * ���ر���ͼƬ�Ļص��ӿ�
-	 * 
-	 * @author xiaanming
-	 *
+	 * 加载本地图片的回调接口
 	 */
 	public interface NativeImageCallBack{
 		/**
-		 * �����̼߳������˱��ص�ͼƬ����Bitmap��ͼƬ·���ص��ڴ˷�����
-		 * @param bitmap
-		 * @param path
+		 * 当子线程加载完了本地的图片，将Bitmap和图片路径回调在此方法中
 		 */
-		public void onImageLoader(Bitmap bitmap, String path);
+		void onImageLoader(Bitmap bitmap, String path);
 	}
 }

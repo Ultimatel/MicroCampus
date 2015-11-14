@@ -30,7 +30,7 @@ import org.smile.microcampus.Utils.PostImageView;
 
 public class ChildAdapter extends BaseAdapter {
 	private Point mPoint = new Point(0, 0);
-
+    private static List<String>list2;
 	private static HashMap<Integer, Boolean> mSelectMap = new HashMap<Integer, Boolean>();
 	private GridView mGridView;
 	private static List<String> list;
@@ -153,13 +153,16 @@ public class ChildAdapter extends BaseAdapter {
 		public CheckBox mCheckBox;
 	}
 
+	/**
+	 * 开启子线程获取选择图片路径，并把路径添加进list2集合中
+	 * @return
+	 */
 	public static List<String> sendCheckPhotoes(){
 		List <String>list2=new ArrayList();
 		for(int i=0;i<ChildAdapter.getSelectItems().size();i++){
 			int position=ChildAdapter.getSelectItems().get(i);
 			String path1=list.get(position);
 			list2.add(path1);
-
 		}
 		return  list2;
 	}

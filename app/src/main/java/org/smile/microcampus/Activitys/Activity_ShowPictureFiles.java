@@ -168,7 +168,6 @@ public class Activity_ShowPictureFiles extends AppCompatActivity {
             ImageBean mImageBean = new ImageBean();
             String key = entry.getKey();
             List<String> value = entry.getValue();
-
             mImageBean.setFolderName(key);
             mImageBean.setImageCounts(value.size());
             mImageBean.setTopImagePath(value.get(0));//获取该组的第一张图片
