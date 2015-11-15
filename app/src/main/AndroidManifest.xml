@@ -67,7 +67,8 @@
         </activity>
         <activity
             android:name=".Activitys.Post_ActivityMessages"
-            android:label="Post_ActivityMessages" >
+            android:label="Post_ActivityMessages"
+            android:launchMode="singleTask">
         </activity>
         <activity android:name=".Activitys.CuslutQuestion" />
         <activity android:name=".Activitys.AddAnswerActivity" />
@@ -128,8 +129,8 @@
             android:name=".Activitys.Activity_ShowPictureFiles"
             android:label="@string/select_picture">
         </activity>
-        <activity android:name=".Activitys.ShowImageActivity">
-        </activity>
+        <activity android:name=".Activitys.ShowImageActivity"/>
+
     </application>
 
 </manifest>

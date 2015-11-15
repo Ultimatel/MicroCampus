@@ -47,6 +47,7 @@ public class Post_ActivityMessages extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.school_fragment_post_form);
         initView();
+
     }
 
     public void initView() {
@@ -85,7 +86,7 @@ public class Post_ActivityMessages extends AppCompatActivity {
                     case 0:
                     Intent intent = new Intent(getApplicationContext(), Activity_ShowPictureFiles.class);
                         startActivity(intent);
-                        finish();//关闭当前的活动
+                       // finish();//关闭当前的活动
                         break;
                 }
             }
@@ -121,18 +122,19 @@ public class Post_ActivityMessages extends AppCompatActivity {
             @Override
             public void run() {
               //  Map<String, Object> map = new HashMap<>();
-                if (plist!=null) {
-                    Bitmap bitmap=BitmapFactory.decodeResource(getResources(),R.drawable.picture_plus);
-                    Map<String,Object>map1=new HashMap<String, Object>();
-                    map1.put("image",bitmap);
-                    pDatas.add(map1);
-                    for (int i = 0; i < (plist.size()); i++) {
-                        Map<String, Object> map = new HashMap<>();
-                        Bitmap bitmap1 = BitmapFactory.decodeFile(plist.get(i));
-                        map.put("image", bitmap1);
-                        pDatas.add(map);
+                    if (plist != null) {
+                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.picture_plus);
+                        Map<String, Object> map1 = new HashMap<String, Object>();
+                        map1.put("image", bitmap);
+                        pDatas.add(map1);
+                        for (int i = 0; i < (plist.size()); i++) {
+                            Map<String, Object> map = new HashMap<>();
+                            Bitmap bitmap1 = BitmapFactory.decodeFile(plist.get(i));
+                            map.put("image", bitmap1);
+                            pDatas.add(map);
+                        }
                     }
-                }
+
                /* else
                 {
                     Map<String, Object> map = new HashMap<>();
