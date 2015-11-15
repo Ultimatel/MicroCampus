@@ -11,7 +11,7 @@
         android:listSelector="@android:color/transparent"
         android:cacheColorHint="@android:color/transparent"
         android:stretchMode="columnWidth"
-        android:horizontalSpacing="5dip"
+        android:horizontalSpacing="3dip"
         android:gravity="center"
         android:verticalSpacing="5dip"
         android:columnWidth="90dip"

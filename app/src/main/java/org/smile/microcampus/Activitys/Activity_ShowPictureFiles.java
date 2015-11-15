@@ -160,15 +160,14 @@ public class Activity_ShowPictureFiles extends AppCompatActivity {
         if(mGruopMap.size() == 0){
             return null;
         }
-        List<ImageBean> list = new ArrayList<ImageBean>();
-
+        List<ImageBean> list = new ArrayList<>();
+        //对获取的文件夹进行迭代
         Iterator<Map.Entry<String, List<String>>> it = mGruopMap.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<String, List<String>> entry = it.next();
             ImageBean mImageBean = new ImageBean();
             String key = entry.getKey();
             List<String> value = entry.getValue();
-
             mImageBean.setFolderName(key);
             mImageBean.setImageCounts(value.size());
             mImageBean.setTopImagePath(value.get(0));//获取该组的第一张图片

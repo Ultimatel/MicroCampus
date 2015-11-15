@@ -8,8 +8,8 @@
         android:layout_height="match_parent">
         <ImageView
             android:id="@+id/school_image"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:src="@drawable/p1"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="3dp"
@@ -20,11 +20,11 @@
     android:layout_height="wrap_content"
     android:layout_toRightOf="@+id/school_image"
     android:paddingLeft="15dp"
-    android:textSize="18sp"
+    android:textSize="17sp"
     android:ellipsize="end"
     android:text="标题:"
     android:layout_marginTop="5dp"
-    android:textColor="@color/green"
+    android:textColor="@color/black"
     android:lines="1"/>
  <TextView
      android:id="@+id/school_tv2"
@@ -39,6 +39,16 @@
      android:lines="2"
      android:layout_marginRight="15dp"
      android:ellipsize="end"/>
+        <GridView
+            android:id="@+id/school_gridview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/school_tv2"
+            android:layout_marginLeft="58dp"
+            android:numColumns="3"
+            android:layout_marginTop="5dp">
+
+        </GridView>
     </RelativeLayout>
 
 </LinearLayout>

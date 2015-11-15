@@ -8,8 +8,8 @@
         android:layout_marginTop="3dp">
         <ImageView
             android:id="@+id/school_image"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/p5"
             android:layout_marginLeft="5dp"
 

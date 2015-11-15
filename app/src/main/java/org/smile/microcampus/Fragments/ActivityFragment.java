@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.smile.microcampus.Activitys.Activity_ShowPictureFiles;
 import org.smile.microcampus.Activitys.Post_ActivityMessages;
 import org.smile.microcampus.R;
 import org.smile.microcampus.Utils.FragmentsFactory;
@@ -150,7 +151,7 @@ public class ActivityFragment extends Fragment implements  View.OnClickListener,
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.activity_postmessages:// 发表活动信息
-                Intent intent1=new Intent(getActivity(), Post_ActivityMessages.class);
+                Intent intent1=new Intent(getActivity(), Activity_ShowPictureFiles.class);
                 startActivity(intent1);break;
             case R.id.parttimejob_postmessages:
                 Toast.makeText(getActivity(),"填写兼职发布信息内容",Toast.LENGTH_SHORT).show();break;
