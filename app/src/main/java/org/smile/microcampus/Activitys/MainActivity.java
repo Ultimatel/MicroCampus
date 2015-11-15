@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,6 +21,8 @@ import org.smile.microcampus.Fragments.ShareFragment;
 import org.smile.microcampus.R;
 
 import cn.bmob.v3.Bmob;
+import io.rong.imkit.RongIM;
+import io.rong.imlib.RongIMClient;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -72,6 +75,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            setTabSelection(5);
 //            setToolBarTitle(5);
 //        }
+        String Token = "2WpK2Lbs4r3DG8/X7JgVsehfvVfP+0RfM/vke2v2ZOfLtzGIgs5WOVycN8torIffl8I1zwwew5RdA8UVa9A7ag==";//test
+        /**
+         * IMKit SDK调用第二步
+         *
+         * 建立与服务器的连接
+         *
+         */
+        RongIM.connect(Token, new RongIMClient.ConnectCallback() {
+            @Override
+            public void onTokenIncorrect() {
+                //Connect Token 失效的状态处理，需要重新获取 Token
+            }
+
+            @Override
+            public void onSuccess(String userId) {
+                Log.e("MainActivity", "——onSuccess— -" + userId);
+            }
+
+            @Override
+            public void onError(RongIMClient.ErrorCode errorCode) {
+                Log.e("MainActivity", "——onError— -" + errorCode);
+            }
+        });
 
     }
 
