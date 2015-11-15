@@ -148,12 +148,8 @@
             android:name=".Activitys.Activity_ShowPictureFiles"
             android:label="@string/select_picture">
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".Activitys.ShowImageActivity"/>
 
-=======
-        <activity android:name=".Activitys.ShowImageActivity">
-        </activity>
+        <activity android:name=".Activitys.ShowImageActivity"/>
 
         <activity android:name=".Activitys.ConversationActivity">
         <intent-filter>
@@ -278,7 +274,6 @@
             android:name="RONG_CLOUD_APP_KEY"
             android:value="25wehl3uwk6qw" />
         <!-- end -->
->>>>>>> 2e5b4febecc4a4ecbb2a13ce9efb5b166d72bb75
     </application>
 
 </manifest>
