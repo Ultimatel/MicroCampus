@@ -51,7 +51,7 @@
         <activity
             android:name=".Activitys.NewsActivity"
             android:parentActivityName=".Activitys.MainActivity"
-            android:theme="@style/Theme.AppCompat.Light" >
+            >
         </activity>
         <activity
             android:name=".Activitys.BaoMingActivity"
@@ -87,7 +87,9 @@
         <activity
             android:name=".Activitys.Post_ActivityMessages"
             android:label="Post_ActivityMessages"
-            android:launchMode="singleTask">
+            android:launchMode="singleTask"
+            android:taskAffinity=".Activitys.Post_ActivityMessages"
+           >
         </activity>
         <activity android:name=".Activitys.CuslutQuestion" />
         <activity android:name=".Activitys.AddAnswerActivity" />
@@ -146,10 +148,12 @@
         </activity>
         <activity
             android:name=".Activitys.Activity_ShowPictureFiles"
-            android:label="@string/select_picture">
+            android:label="@string/select_picture"
+            android:launchMode="singleTask">
         </activity>
 
-        <activity android:name=".Activitys.ShowImageActivity"/>
+        <activity android:name=".Activitys.ShowImageActivity"
+            android:launchMode="singleTask" />
 
         <activity android:name=".Activitys.ConversationActivity">
         <intent-filter>

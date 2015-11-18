@@ -41,6 +41,7 @@ public class Activity_ShowPictureFiles extends AppCompatActivity {
     private GroupAdapter adapter;
     private GridView mGroupGridView;
     private Toolbar mToolbar;
+    public static Activity_ShowPictureFiles activityShowPictureFiles;
     private Handler mHandler = new Handler(){
 
         @Override
@@ -66,6 +67,7 @@ public class Activity_ShowPictureFiles extends AppCompatActivity {
     }
     //初始化
       public void initView(){
+          activityShowPictureFiles=this;
           //获取Toolbar
           mToolbar= (Toolbar) findViewById(R.id.toolbar);//toolbar布局
           mToolbar.setTitleTextColor(Color.WHITE);
@@ -78,7 +80,6 @@ public class Activity_ShowPictureFiles extends AppCompatActivity {
                   onBackPressed();
               }
           });
-
           mGroupGridView = (GridView) findViewById(R.id.main_grid);
           getImages();
           mGroupGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -88,9 +89,9 @@ public class Activity_ShowPictureFiles extends AppCompatActivity {
                                       int position, long id) {
                   List<String> childList = mGruopMap.get(list.get(position).getFolderName());
                   Intent mIntent = new Intent(getApplicationContext(), ShowImageActivity.class);
-                  mIntent.putStringArrayListExtra("data", (ArrayList<String>)childList);
+                  mIntent.putStringArrayListExtra("data", (ArrayList<String>) childList);
                   startActivity(mIntent);
-                  finish();
+                 // finish();
               }
           });
       }
