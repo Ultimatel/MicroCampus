@@ -49,7 +49,7 @@ public class School_in_out_Fragment extends Fragment  implements SwipeRefreshLay
     private List<Map> sDatas;
     private TextView loadMoreText;
     private SwipeRefreshLayout  swipeLayout;
-    private GridView gridView;
+
     public School_in_out_Fragment() {
         // Required empty public constructor
     }
@@ -74,7 +74,6 @@ public void initView(){
         sDatas.add(map);
     }
     slistView= (ListView) view.findViewById(R.id.school_listview);
-    gridView= (GridView) view.findViewById(R.id.school_gridview);
     slistView.setAdapter(new CommonAdapter<Map>(getActivity(),sDatas,R.layout.school_in_out_actvity_fragment) {
         @Override
         public void convert(ViewHolder holder, Map map) {

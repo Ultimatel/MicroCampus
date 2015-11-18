@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -25,13 +26,14 @@ public class ShowImageActivity extends AppCompatActivity {
 	private ChildAdapter adapter;
     private Toolbar mToolbar;
 	private List<String>selectList=new ArrayList<String>();
+	public static ShowImageActivity showImageActivity;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.show_girdview_pictures);
 		initView();
-		
+		showImageActivity=this;//将当前的活动给静态变量showImageActivity，用来做关闭当前活动处理;
 	}
 	public void initView(){
 		//获取toolbar组件
@@ -46,7 +48,6 @@ public class ShowImageActivity extends AppCompatActivity {
 				simple(v);
 			}
 		});
-
 		mGridView = (GridView) findViewById(R.id.child_grid);
 		list = getIntent().getStringArrayListExtra("data");
 		adapter = new ChildAdapter(this, list, mGridView);
@@ -96,9 +97,10 @@ public class ShowImageActivity extends AppCompatActivity {
 			case R.id.menu_success:
 				Intent mIntent=new Intent(getApplicationContext(),Post_ActivityMessages.class);
 				selectList=ChildAdapter.sendCheckPhotoes();
+				Log.v("打印selectList集合的长度",selectList.size() + "");
 			    mIntent.putStringArrayListExtra("checkphoto", (ArrayList<String>) selectList);
 				startActivity(mIntent);
-				finish();
+				//finish();
 		}
 		return true;
 	}

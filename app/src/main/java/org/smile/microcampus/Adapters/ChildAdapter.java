@@ -158,7 +158,7 @@ public class ChildAdapter extends BaseAdapter {
 	 * @return
 	 */
 	public static List<String> sendCheckPhotoes(){
-		List <String>list2=new ArrayList();
+		list2=new ArrayList();
 		for(int i=0;i<ChildAdapter.getSelectItems().size();i++){
 			int position=ChildAdapter.getSelectItems().get(i);
 			String path1=list.get(position);

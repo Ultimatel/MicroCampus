@@ -53,14 +53,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView layoutTextShare;
     private TextView layoutTextMe;
 
-    public static String AppID = "c73f794ee1f2c0d69b6025fa2c79a886";  //Bmob ID
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fragmentManager = getSupportFragmentManager();
-        Bmob.initialize(this, AppID);  //初始化 Bmob SDK
         initView();
 
     }
