@@ -84,30 +84,30 @@ public class NeedFragment extends Fragment {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            switch (position) {
-                case 0:   //超市
-                    Intent intent = new Intent(getActivity(), SupermarketActivity.class);
-                    startActivity(intent);
-                    break;
-                case 1:  //包车
-                    Intent intent1 = new Intent(getActivity(), BaoCheActivity.class);
-                    startActivity(intent1);
-                    break;
-                case 2:  //住宿
-                    Intent intent2 = new Intent(getActivity(), AccommodationActivity.class);
-                    startActivity(intent2);
-                    break;
-                case 3:  //旅游
-                    Intent intent3 = new Intent(getActivity(), TravelActivity.class);
-                    startActivity(intent3);
-                    break;
-                case 7:  //服务
-                    Intent intent8 = new Intent(getActivity(), ServiceActivity.class);
-                    startActivity(intent8);
-                    break;
-                default:
-                    break;
-            }
+                switch (position) {
+                    case 0:   //超市
+                        Intent intent = new Intent(getActivity(), SupermarketActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 1:  //包车
+                        Intent intent1 = new Intent(getActivity(), BaoCheActivity.class);
+                        startActivity(intent1);
+                        break;
+                    case 2:  //住宿
+                        Intent intent2 = new Intent(getActivity(), AccommodationActivity.class);
+                        startActivity(intent2);
+                        break;
+                    case 3:  //旅游
+                        Intent intent3 = new Intent(getActivity(), TravelActivity.class);
+                        startActivity(intent3);
+                        break;
+                    case 7:  //服务
+                        Intent intent8 = new Intent(getActivity(), ServiceActivity.class);
+                        startActivity(intent8);
+                        break;
+                    default:
+                        break;
+                }
             }
         });
 

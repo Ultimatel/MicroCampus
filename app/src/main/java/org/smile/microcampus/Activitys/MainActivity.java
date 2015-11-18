@@ -19,8 +19,6 @@ import org.smile.microcampus.Fragments.NeedFragment;
 import org.smile.microcampus.Fragments.ShareFragment;
 import org.smile.microcampus.R;
 
-import cn.bmob.v3.Bmob;
-
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -69,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setToolBarTitle(3);
         //mToolbar.setTitle("微校");
         setSupportActionBar(mToolbar);  //将ToolBar设置为ActionBAr
+        getSupportActionBar().hide();   //隐藏ActionBAr
 
         layoutBtnLearn = (LinearLayout) findViewById(R.id.layout_btn_learn);
         layoutBtnNeed = (LinearLayout) findViewById(R.id.layout_btn_need);
@@ -101,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             resetLayoutButton();
             setLayoutButton(5);
             setTabSelection(5);
-            setToolBarTitle(5);
+//            setToolBarTitle(5);
         }else{   //否则显示活动主页面
             resetLayoutButton();
             setLayoutButton(3);
@@ -176,34 +175,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         resetLayoutButton();
         switch (v.getId()) {
             case R.id.layout_btn_learn:
+//                setToolBarTitle(1);
+                getSupportActionBar().hide();
                 setLayoutButton(1);
                 setTabSelection(1);
-                setToolBarTitle(1);
                 break;
             case R.id.layout_btn_need:
+                 setToolBarTitle(2);
+                getSupportActionBar().show();
                 setLayoutButton(2);
                 setTabSelection(2);
-                setToolBarTitle(2);
                 break;
             case R.id.layout_btn_activity:
+//                setToolBarTitle(3);
+                getSupportActionBar().hide();
                 setLayoutButton(3);
                 setTabSelection(3);
-                setToolBarTitle(3);
+
                 break;
             case R.id.layout_btn_share:
+                setToolBarTitle(4);
+                getSupportActionBar().show();
                 setLayoutButton(4);
                 setTabSelection(4);
-                setToolBarTitle(4);
+
                 break;
             case R.id.layout_btn_me:
+//                setToolBarTitle(5);
+                getSupportActionBar().hide();
                 setLayoutButton(5);
                 setTabSelection(5);
-                setToolBarTitle(5);
                 break;
             default:
+//                setToolBarTitle(3);
+//                getSupportActionBar().hide();
                 setLayoutButton(3);
                 setTabSelection(3);
-                setToolBarTitle(3);
                 break;
         }
 

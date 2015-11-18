@@ -38,6 +38,7 @@ public class UserInfoAdapter extends MultiItemCommonAdapter<Map>{
                     return 0;
                 }
                 return 1;
+//                return position;
             }
         });
     }
@@ -54,7 +55,6 @@ public class UserInfoAdapter extends MultiItemCommonAdapter<Map>{
                     ImageLoader.getInstance().displayImage(url, image, MyImageLoader.options);
                 else
                     holder.setImageResource(R.id.content, R.drawable.user_icon);
-
                 break;
             case R.layout.list_item_text_text:
                 holder.setText(R.id.title, map.get("title").toString());
