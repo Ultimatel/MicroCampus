@@ -7,13 +7,22 @@ import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGener
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
+import cn.bmob.v3.Bmob;
+import io.rong.imkit.RongIM;
+
 /**
  * Created by guang on 2015/11/15.
  */
 public class MyApplication extends Application {
+    public static String AppID = "7d6d05f636bb7ef6fe86d91ee0175db2";  //Bmob ID
     @Override
     public void onCreate() {
         super.onCreate();
+        /**
+         * 初始化融云
+         */
+        RongIM.init(this);
+        Bmob.initialize(this, AppID);  //初始化 Bmob SDK
         initImageLoader(getApplicationContext());
     }
     /**初始化图片加载类配置信息**/

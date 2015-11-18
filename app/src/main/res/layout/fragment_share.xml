@@ -5,4 +5,10 @@
     tools:context="org.smile.microcampus.Fragments.LearningFragment">
 
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动单聊"
+        android:id="@+id/star_chat"
+        android:layout_gravity="center_horizontal|top" />
 </FrameLayout>
