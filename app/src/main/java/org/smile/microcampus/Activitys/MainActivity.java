@@ -53,8 +53,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView layoutTextShare;
     private TextView layoutTextMe;
 
-    private boolean isFromlogin; //是否是从登陆界面跳转过来
-
     public static String AppID = "c73f794ee1f2c0d69b6025fa2c79a886";  //Bmob ID
 
     @Override
@@ -64,14 +62,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fragmentManager = getSupportFragmentManager();
         Bmob.initialize(this, AppID);  //初始化 Bmob SDK
         initView();
-
-//        isFromlogin =  getIntent().getBooleanExtra("isFromlogin", false);
-//        if(isFromlogin){   //从登陆界面返回的话
-//            resetLayoutButton();
-//            setLayoutButton(5);
-//            setTabSelection(5);
-//            setToolBarTitle(5);
-//        }
 
     }
 
@@ -106,10 +96,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         layoutTextShare = (TextView) findViewById(R.id.layout_text_share);
         layoutTextMe = (TextView) findViewById(R.id.layout_text_me);
 
-        resetLayoutButton();
-        setLayoutButton(3);
-        setTabSelection(3);
-        setToolBarTitle(3);
+
+        boolean isFromlogin; //是否是从登陆或注册界面跳转过来
+        isFromlogin =  getIntent().getBooleanExtra("isFromlogin", false);
+        if(isFromlogin){   //从登陆界面返回的话,显示我的Fragment
+            resetLayoutButton();
+            setLayoutButton(5);
+            setTabSelection(5);
+            setToolBarTitle(5);
+        }else{   //否则显示活动主页面
+            resetLayoutButton();
+            setLayoutButton(3);
+            setTabSelection(3);
+            setToolBarTitle(3);
+        }
     }
 
     /**设置当前Fragment界面标题*/

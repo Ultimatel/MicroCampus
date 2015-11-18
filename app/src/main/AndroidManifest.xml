@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.READ_LOGS" />
 
     <application
+        android:name=".Utils.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -126,9 +127,13 @@
         </activity>
         <activity
             android:name=".Activitys.Activity_ShowPictureFiles"
-            android:label="@string/select_picture">
+            android:label="@string/select_picture" >
         </activity>
-        <activity android:name=".Activitys.ShowImageActivity">
+        <activity android:name=".Activitys.ShowImageActivity" >
+        </activity>
+        <activity
+            android:name=".Activitys.UserInfoActivity"
+            android:label="@string/title_activity_user_info" >
         </activity>
     </application>
 

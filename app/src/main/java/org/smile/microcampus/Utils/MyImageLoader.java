@@ -14,8 +14,20 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 public class MyImageLoader {
 
     private ImageLoader imageLoader;  //图片加载器对象
-    private DisplayImageOptions options;  ////显示图片的配置
     private Context mContext;
+
+    public static DisplayImageOptions  options = new DisplayImageOptions.Builder()
+            //.showImageOnLoading(R.mipmap.news_title_default_image) // 设置图片下载期间显示的图片
+            //.showImageForEmptyUri(R.mipmap.news_title_default_image) // 设置图片Uri为空或是错误的时候显示的图片
+            // .showImageOnFail(R.mipmap.news_title_default_image) // 设置图片加载或解码过程中发生错误显示的图片
+            .resetViewBeforeLoading(false)  // default 设置图片在加载前是否重置、复位
+            .cacheInMemory(true) // default  设置下载的图片是否缓存在内存中  //开启缓存后默认会缓存到外置SD卡如下地址(/sdcard/Android/data/[package_name]/cache).
+            .cacheOnDisk(true) // default  设置下载的图片是否缓存在SD卡中
+                    //.imageScaleType(ImageScaleType.IN_SAMPLE_POWER_OF_2) // default 设置图片以如何的编码方式显示
+            .bitmapConfig(Bitmap.Config.RGB_565) // default 设置图片的解码类型
+                    //.displayer(new SimpleBitmapDisplayer()) // default  还可以设置圆角图片new RoundedBitmapDisplayer(20)
+            .build();  ////显示图片的配置
+
 
     /**构造函数初始化*/
     public MyImageLoader(Context context){
@@ -54,17 +66,17 @@ public class MyImageLoader {
         imageLoader.init(config);   //Initialize ImageLoader with configuration.
 
         //显示图片的配置
-        options = new DisplayImageOptions.Builder()
-                //.showImageOnLoading(R.mipmap.news_title_default_image) // 设置图片下载期间显示的图片
-                //.showImageForEmptyUri(R.mipmap.news_title_default_image) // 设置图片Uri为空或是错误的时候显示的图片
-               // .showImageOnFail(R.mipmap.news_title_default_image) // 设置图片加载或解码过程中发生错误显示的图片
-                .resetViewBeforeLoading(false)  // default 设置图片在加载前是否重置、复位
-                .cacheInMemory(true) // default  设置下载的图片是否缓存在内存中  //开启缓存后默认会缓存到外置SD卡如下地址(/sdcard/Android/data/[package_name]/cache).
-                .cacheOnDisk(true) // default  设置下载的图片是否缓存在SD卡中
-                        //.imageScaleType(ImageScaleType.IN_SAMPLE_POWER_OF_2) // default 设置图片以如何的编码方式显示
-                .bitmapConfig(Bitmap.Config.RGB_565) // default 设置图片的解码类型
-                        //.displayer(new SimpleBitmapDisplayer()) // default  还可以设置圆角图片new RoundedBitmapDisplayer(20)
-                .build();
+//        options = new DisplayImageOptions.Builder()
+//                //.showImageOnLoading(R.mipmap.news_title_default_image) // 设置图片下载期间显示的图片
+//                //.showImageForEmptyUri(R.mipmap.news_title_default_image) // 设置图片Uri为空或是错误的时候显示的图片
+//               // .showImageOnFail(R.mipmap.news_title_default_image) // 设置图片加载或解码过程中发生错误显示的图片
+//                .resetViewBeforeLoading(false)  // default 设置图片在加载前是否重置、复位
+//                .cacheInMemory(true) // default  设置下载的图片是否缓存在内存中  //开启缓存后默认会缓存到外置SD卡如下地址(/sdcard/Android/data/[package_name]/cache).
+//                .cacheOnDisk(true) // default  设置下载的图片是否缓存在SD卡中
+//                        //.imageScaleType(ImageScaleType.IN_SAMPLE_POWER_OF_2) // default 设置图片以如何的编码方式显示
+//                .bitmapConfig(Bitmap.Config.RGB_565) // default 设置图片的解码类型
+//                        //.displayer(new SimpleBitmapDisplayer()) // default  还可以设置圆角图片new RoundedBitmapDisplayer(20)
+//                .build();
 
         //ImageSize mImageSize = new ImageSize(100, 100);
         //imageLoader.displayImage(imageUrl, viewHolder.imageView, options);

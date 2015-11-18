@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import org.smile.microcampus.Model.MyUser;
 import org.smile.microcampus.R;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -32,6 +34,10 @@ import com.umeng.socialize.bean.StatusCode;
 import com.umeng.socialize.controller.listener.SocializeListeners.SocializeClientListener;
 import com.umeng.socialize.controller.listener.SocializeListeners.UMDataListener;
 import com.umeng.socialize.weixin.controller.UMWXHandler;
+
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.LogInListener;
+import cn.bmob.v3.listener.SaveListener;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -98,18 +104,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.login:
-                Toast.makeText(this, "登陆" , Toast.LENGTH_SHORT).show();
+                login(username.getText().toString(), password.getText().toString());
+//                Toast.makeText(this, "登陆" , Toast.LENGTH_SHORT).show();
                 break;
             case R.id.login_qq:
-                login(SHARE_MEDIA.QQ);
+                thirdLogin(SHARE_MEDIA.QQ);
 //              Toast.makeText(this, "QQ" , Toast.LENGTH_SHORT).show();
                 break;
             case R.id.login_weixin:
-                login(SHARE_MEDIA.WEIXIN);
+                thirdLogin(SHARE_MEDIA.WEIXIN);
 //              Toast.makeText(this, "微信" , Toast.LENGTH_SHORT).show();
                 break;
             case R.id.login_weibo:
-                login(SHARE_MEDIA.SINA);
+                thirdLogin(SHARE_MEDIA.SINA);
 //              Toast.makeText(this, "微博" , Toast.LENGTH_SHORT).show();
                 break;
             default:
@@ -117,10 +124,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
+    private void login(String username, String password){
+        MyUser.loginByAccount(this, username, password, new LogInListener<MyUser>() {
+
+            @Override
+            public void done(MyUser user, BmobException e) {
+                if (user != null) {
+                    Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("isFromlogin", true);
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(LoginActivity.this, "登录失败:请检查用户名或密码", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
     /**
      * 授权。如果授权成功，则获取用户信息</br>
      */
-    private void login(final SHARE_MEDIA platform) {
+    private void thirdLogin(final SHARE_MEDIA platform) {
         mController.doOauthVerify(this, platform, new UMAuthListener() {
 
             @Override

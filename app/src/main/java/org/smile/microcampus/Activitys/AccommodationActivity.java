@@ -22,7 +22,6 @@ import java.util.Map;
 
 public class AccommodationActivity extends AppCompatActivity {
 
-    private Toolbar mToolbar;
     private ImageCycleView mAdView;
     private ArrayList<String> mImageUrl = null;
     private String imageUrl1 = "http://img.lakalaec.com/ad/57ab6dc2-43f2-4087-81e2-b5ab5681642d.jpg";
@@ -37,25 +36,11 @@ public class AccommodationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accommodation);
-
+        setToolbar();
         initView();
     }
 
     private void initView(){
-
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);   //ToolBar布局
-        mToolbar.setTitleTextColor(Color.WHITE);  //设置ToolBar字体颜色为白色
-        mToolbar.setTitle("住宿");
-        setSupportActionBar(mToolbar);  //将ToolBar设置为ActionBAr
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);  //在ToolBar左边，即当前标题前添加图标
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
-
-
         mImageUrl = new ArrayList<String>();
         mImageUrl.add(imageUrl1);
         mImageUrl.add(imageUrl2);
@@ -87,7 +72,6 @@ public class AccommodationActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
     private ImageCycleView.ImageCycleViewListener mAdCycleViewListener = new ImageCycleView.ImageCycleViewListener() {
@@ -97,6 +81,21 @@ public class AccommodationActivity extends AppCompatActivity {
             Toast.makeText(AccommodationActivity.this, "图片" + position, Toast.LENGTH_SHORT).show();
         }
     };
+
+    public void setToolbar(){
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);   //ToolBar布局
+        mToolbar.setTitleTextColor(Color.WHITE);  //设置ToolBar字体颜色为白色
+        mToolbar.setTitle("住宿");
+        setSupportActionBar(mToolbar);  //将ToolBar设置为ActionBAr
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);  //在ToolBar左边，即当前标题前添加图标
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+    }
+
 
 
 }

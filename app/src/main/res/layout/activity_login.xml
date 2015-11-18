@@ -44,16 +44,19 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/half_gray"/>
-        <TextView
-            android:id="@+id/forget_password"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textColor="@color/blue"
-            android:background="@color/snow"
-            android:text="忘记密码？"
-            android:gravity="center_vertical|right"
-            />
+
     </LinearLayout>
+    <TextView
+        android:id="@+id/forget_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="@color/blue"
+        android:background="@color/snow"
+        android:text="忘记密码？"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center_vertical|right"
+        />
     <Button
         android:id="@+id/login"
         android:layout_marginTop="10dp"

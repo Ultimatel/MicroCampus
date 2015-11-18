@@ -1,7 +1,8 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="org.smile.microcampus.Fragments.LearningFragment">
 
 
@@ -14,25 +15,32 @@
 
             <LinearLayout
                 android:id="@+id/login"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <org.smile.microcampus.Utils.CircleImageView
-                    android:id="@+id/user_image"
+                    android:id="@+id/user_icon"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/user"
+                    android:src="@drawable/user_icon"
+                    android:layout_gravity="center"
                     android:layout_marginTop="3dp" />
                 <TextView
-                    android:id="@+id/user_name"
-                    android:layout_width="60dp"
+                    android:id="@+id/nickname"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="立即登陆"
+                    android:text="点击登陆"
                     android:textColor="@color/white"
                     android:layout_marginTop="6dp"
                     android:gravity="center"
                     />
             </LinearLayout>
-
     </LinearLayout>
-</FrameLayout>
+
+    <Button
+        android:id="@+id/login_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="退出登陆"/>
+
+</LinearLayout>

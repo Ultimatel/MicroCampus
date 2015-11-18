@@ -21,13 +21,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private EditText password;  //密码
     private EditText passwordConfirm;  //确认密码
     private Button register;   //注册按钮
-//    public static String AppID = "c73f794ee1f2c0d69b6025fa2c79a886";  //Bmob ID
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-//        Bmob.initialize(this, AppID);  //初始化 Bmob SDK
         intView();
     }
     public void intView() {
@@ -66,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
 
     public void register(String username, String password, String passwordConfirm){
-        if(password.equals(passwordConfirm)){     //两次输入的密码相同
+        if(password.equals(passwordConfirm)){     //判断两次输入的密码
             MyUser myUser = new MyUser();
 
             boolean valid = false;
@@ -74,6 +72,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 myUser.setUsername(username);
                 myUser.setPassword(password);
                 myUser.setStudentId(username);
+                myUser.setNickname("匿名用户");
                 myUser.signUp(this, saveListener);
                 valid = true;
 //                Toast.makeText(RegisterActivity.this, "学号", Toast.LENGTH_SHORT).show();
@@ -83,6 +82,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 myUser.setUsername(username);
                 myUser.setPassword(password);
                 myUser.setMobilePhoneNumber(username);
+                myUser.setNickname("匿名用户");
                 myUser.signUp(this, saveListener);
                 valid = true;
 //                Toast.makeText(RegisterActivity.this, "手机号码", Toast.LENGTH_SHORT).show();
@@ -93,6 +93,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 myUser.setUsername(username);
                 myUser.setPassword(password);
                 myUser.setEmail(username);
+                myUser.setNickname("匿名用户");
                 myUser.signUp(this, saveListener);
                 valid = true;
 //                Toast.makeText(RegisterActivity.this, "邮箱", Toast.LENGTH_SHORT).show();
@@ -119,6 +120,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 //                        + myUser.getObjectId() + "-" + myUser.getCreatedAt()
 //                        + "-" + myUser.getSessionToken()+",是否验证："+myUser.getEmailVerified());
             Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+            intent.putExtra("isFromlogin", true);
             startActivity(intent);
         }
 
