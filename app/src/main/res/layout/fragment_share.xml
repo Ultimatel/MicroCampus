@@ -1,9 +1,53 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.smile.microcampus.Fragments.LearningFragment">
+    tools:context="org.smile.microcampus.Fragments.LearningFragment"
+    android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
+    android:paddingLeft="20dp">
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_weight="1">
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/meizi"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="聊天室"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        />
 
+</LinearLayout>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_weight="1">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/begin"
+        android:text="创建"
+        android:layout_gravity="right|center"
+        android:textSize="20dp"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="120dp" />
+
+</LinearLayout>
+</LinearLayout>
 
     <Button
         android:layout_width="match_parent"
@@ -11,4 +55,4 @@
         android:text="启动单聊"
         android:id="@+id/star_chat"
         android:layout_gravity="center_horizontal|top" />
-</FrameLayout>
+</LinearLayout>

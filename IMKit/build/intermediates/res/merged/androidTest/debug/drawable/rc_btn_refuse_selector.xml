@@ -9,4 +9,4 @@
     <!-- Pressed -->
     <item android:drawable="@drawable/rc_call_over_down" android:state_pressed="true"/>
 
-</selector><!-- From: file:/D:/Project/MicroCampus/IMKit/src/main/res/drawable/rc_btn_refuse_selector.xml --><!-- From: file:/D:/Project/MicroCampus/IMKit/build/intermediates/bundles/debug/res/drawable/rc_btn_refuse_selector.xml -->
+</selector><!-- From: file:/D:/cc/IMKit/src/main/res/drawable/rc_btn_refuse_selector.xml --><!-- From: file:/D:/cc/IMKit/build/intermediates/bundles/debug/res/drawable/rc_btn_refuse_selector.xml -->
